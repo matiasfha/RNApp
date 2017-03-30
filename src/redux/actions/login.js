@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILED } from "../constants";
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILED } from '../constants';
 
 export function loginRequest(data) {
   return {

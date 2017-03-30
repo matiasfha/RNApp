@@ -1,11 +1,11 @@
-import React, { PropTypes } from "react";
-import { Header, Left, Title } from "native-base";
-import { connect } from "react-redux";
+import React, { PropTypes } from 'react';
+import { Header, Left, Title } from 'native-base';
+import { connect } from 'react-redux';
 
 const ScreenHeader = ({ userName }) => (
-  <Header style={{ backgroundColor: "#1F3A5A", height: 44 }}>
+  <Header style={{ backgroundColor: '#1F3A5A', height: 44 }}>
     <Left>
-      <Title style={{ fontSize: 15, color: "#fff" }}>
+      <Title style={{ fontSize: 15, color: '#fff' }}>
         Buenas tardes {userName}
       </Title>
     </Left>

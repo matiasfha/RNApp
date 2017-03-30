@@ -2,8 +2,8 @@ import {
   RETENCIONES_REQUEST,
   RETENCIONES_SUCCESS,
   RETENCIONES_FAILED
-} from "../constants";
-import { getRetenciones } from "../../api/data";
+} from '../constants';
+import { getRetenciones } from '../../api/data';
 
 export function retencionesRequest() {
   return {

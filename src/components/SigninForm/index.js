@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from "react";
+import React, { PropTypes, Component } from 'react';
 import {
   Button,
   Container,
@@ -8,27 +8,27 @@ import {
   Text,
   Label,
   Icon
-} from "native-base";
-import { Row, Grid } from "react-native-easy-grid";
-import { StyleSheet, Image, View } from "react-native";
+} from 'native-base';
+import { Row, Grid } from 'react-native-easy-grid';
+import { StyleSheet, Image, View } from 'react-native';
 
 const styles = StyleSheet.create({
   titleImage: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 30
   }
 });
 
-const titleImg = require("../../images/title.png");
+const titleImg = require('../../images/title.png');
 
 class SigninForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rut: "",
-      password: ""
+      rut: '',
+      password: ''
     };
   }
 
@@ -45,7 +45,7 @@ class SigninForm extends Component {
             </Row>
             <View
               style={{
-                backgroundColor: "#fff",
+                backgroundColor: '#fff',
                 marginTop: 40,
                 marginBottom: 40
               }}
@@ -60,7 +60,7 @@ class SigninForm extends Component {
                 />
               </Item>
 
-              <Item inlineLabel style={{ borderBottomColor: "#fff" }}>
+              <Item inlineLabel style={{ borderBottomColor: '#fff' }}>
                 <Label style={{ marginLeft: 18 }}>Password</Label>
                 <Input
                   name="password"
@@ -79,11 +79,11 @@ class SigninForm extends Component {
               onPress={this.submit}
               bordered={false}
               style={{
-                backgroundColor: "white",
-                justifyContent: "flex-start"
+                backgroundColor: 'white',
+                justifyContent: 'flex-start'
               }}
             >
-              <Text style={{ color: "#2E5481" }}> Ingresar </Text>
+              <Text style={{ color: '#2E5481' }}> Ingresar </Text>
             </Button>
 
             <Button
@@ -92,13 +92,13 @@ class SigninForm extends Component {
               iconRight
               bordered={false}
               style={{
-                backgroundColor: "white",
+                backgroundColor: 'white',
                 marginTop: 40,
-                justifyContent: "space-between"
+                justifyContent: 'space-between'
               }}
             >
-              <Text style={{ color: "#B72020" }}> Aún no soy cliente </Text>
-              <Icon name="arrow-forward" style={{ color: "#95989A" }} />
+              <Text style={{ color: '#B72020' }}> Aún no soy cliente </Text>
+              <Icon name="arrow-forward" style={{ color: '#95989A' }} />
             </Button>
 
             <Text
@@ -106,7 +106,7 @@ class SigninForm extends Component {
                 marginTop: 18,
                 marginLeft: 18,
                 marginRight: 18,
-                color: "#646464",
+                color: '#646464',
                 fontSize: 14
               }}
             >
@@ -122,14 +122,14 @@ class SigninForm extends Component {
               iconLeft
               bordered={false}
               style={{
-                backgroundColor: "white",
+                backgroundColor: 'white',
                 marginTop: 55,
-                justifyContent: "space-between"
+                justifyContent: 'space-between'
               }}
             >
-              <Icon name="options" style={{ color: "#000" }} />
-              <Text style={{ color: "#000" }}> Indicadores económicos </Text>
-              <Icon name="arrow-forward" style={{ color: "#95989A" }} />
+              <Icon name="options" style={{ color: '#000' }} />
+              <Text style={{ color: '#000' }}> Indicadores económicos </Text>
+              <Icon name="arrow-forward" style={{ color: '#95989A' }} />
             </Button>
 
           </Grid>

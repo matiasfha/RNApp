@@ -1,18 +1,17 @@
-import React, { PropTypes } from "react";
-import { connect } from "react-redux";
-import { Content, Container, Text, Button } from "native-base";
-import { Grid, Col, Row } from "react-native-easy-grid";
-import { Linking } from "react-native";
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { Content, Container, Text, Button } from 'native-base';
+import { Grid, Col, Row } from 'react-native-easy-grid';
+import { Linking } from 'react-native';
 
-import TabIcon from "../components/TabIcon";
+import TabIcon from '../components/TabIcon';
 
 const handleClick = url => {
   Linking.canOpenURL(url).then(supported => {
     if (supported) {
       Linking.openURL(url);
-    } else {
-      console.log(`Don't know how to open URI: ${url}`);
     }
+    // TODO LOG THIS SOMEWHERE console.log(`Don't know how to open URI: ${url}`);
   });
 };
 
@@ -28,7 +27,7 @@ const RenderButton = ({ clickable, url, content }) => {
       >
         <Text
           style={{
-            color: "#000",
+            color: '#000',
             fontSize: 18
           }}
         >
@@ -40,7 +39,7 @@ const RenderButton = ({ clickable, url, content }) => {
     component = (
       <Text
         style={{
-          color: "#000",
+          color: '#000',
           fontSize: 18
         }}
       >
@@ -55,14 +54,14 @@ const Item = ({ title, content, clickable = false, url }) => (
   <Row
     style={{
       marginBottom: 15,
-      borderBottomColor: "#D6D6D6",
+      borderBottomColor: '#D6D6D6',
       borderBottomWidth: 1,
       paddingBottom: 14
     }}
   >
     <Col>
       <Row>
-        <Text style={{ color: "#2E5481", fontSize: 14, marginBottom: 5 }}>
+        <Text style={{ color: '#2E5481', fontSize: 14, marginBottom: 5 }}>
           {title}
         </Text>
       </Row>
@@ -82,27 +81,21 @@ Item.propTypes = {
 
 Item.defaultProps = {
   clickable: false,
-  url: ""
+  url: ''
 };
 
-const EjecutivoScreen = ({ nombre, telefono, direccion, email, ubicacion }) => (
-  <Container style={{ backgroundColor: "#fff" }}>
+// TODO check how to use ubicacion and how link to call
+const EjecutivoScreen = (
+  { nombre, telefono, direccion, email, ubicacion } // eslint-disable-line no-unused-vars
+) => (
+  <Container style={{ backgroundColor: '#fff' }}>
     <Content style={{ marginLeft: 15, marginRight: 15 }}>
       <Grid style={{ marginTop: 25 }}>
         <Col>
           <Item title="Nombre" content={nombre} />
-          <Item
-            title="Telefono"
-            content={telefono}
-          />
-          <Item
-            title="Email"
-            content={email}
-          />
-          <Item
-            title="Dirección"
-            content={direccion}
-          />
+          <Item title="Telefono" content={telefono} />
+          <Item title="Email" content={email} />
+          <Item title="Dirección" content={direccion} />
 
         </Col>
       </Grid>
@@ -112,11 +105,11 @@ const EjecutivoScreen = ({ nombre, telefono, direccion, email, ubicacion }) => (
 );
 
 EjecutivoScreen.navigationOptions = {
-  title: "Ejecutivo",
+  title: 'Ejecutivo',
   tabBar: {
-    icon: ({ tintColor }) => (
-      <TabIcon imageName="ejecutivo" tintColor={tintColor} />
-    )
+    icon: (
+      { tintColor } // eslint-disable-line react/prop-types
+    ) => <TabIcon imageName="ejecutivo" tintColor={tintColor} />
   }
 };
 

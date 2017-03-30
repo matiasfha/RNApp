@@ -2,8 +2,8 @@ import {
   OPERACIONES_REQUEST,
   OPERACIONES_SUCCESS,
   OPERACIONES_FAILED
-} from "../constants";
-import { getOperaciones } from "../../api/data";
+} from '../constants';
+import { getOperaciones } from '../../api/data';
 
 export function operacionesRequest() {
   return {

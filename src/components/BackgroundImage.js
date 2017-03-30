@@ -1,10 +1,10 @@
-import React, { PropTypes } from "react";
-import { StyleSheet, Image } from "react-native";
+import React, { PropTypes } from 'react';
+import { StyleSheet, Image } from 'react-native';
 
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    resizeMode: "cover",
+    resizeMode: 'cover',
     width: null,
     height: null
   }

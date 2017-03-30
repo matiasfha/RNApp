@@ -1,9 +1,9 @@
-import { NavigationActions } from "react-navigation";
-import login from "../../api/auth";
-import { loginRequest, loginSuccess, loginFailed } from "./login";
-import { retrieveSaldos } from "./saldos";
-import { retrieveOperaciones } from "./operaciones";
-import { retrieveRetenciones } from "./retenciones";
+import { NavigationActions } from 'react-navigation';
+import login from '../../api/auth';
+import { loginRequest, loginSuccess, loginFailed } from './login';
+import { retrieveSaldos } from './saldos';
+import { retrieveOperaciones } from './operaciones';
+import { retrieveRetenciones } from './retenciones';
 
 export function navigate(routeName, params = {}) {
   return NavigationActions.navigate({ routeName, params });
@@ -16,10 +16,10 @@ function retrieveData(data) {
       dispatch(retrieveOperaciones(data)),
       dispatch(retrieveRetenciones(data))
     ])
-      .then(() => dispatch(navigate("Tabs")))
-      .catch(error => {
-        console.log(error);
-        dispatch(navigate("Home"));
+      .then(() => dispatch(navigate('Tabs')))
+      .catch(() => {
+        // TODO Log the error to somewhere
+        dispatch(navigate('Home'));
       });
   };
 }
@@ -27,7 +27,7 @@ function retrieveData(data) {
 export function doLogin(data) {
   return dispatch => {
     dispatch(loginRequest(data));
-    dispatch(navigate("Loading"));
+    dispatch(navigate('Loading'));
     return login(data)
       .then(response => {
         dispatch(
@@ -41,7 +41,7 @@ export function doLogin(data) {
       })
       .catch(error => {
         dispatch(loginFailed(error));
-        dispatch(navigate("Home"));
+        dispatch(navigate('Home'));
       });
   };
 }

@@ -1,13 +1,13 @@
-import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
 
-import { Spinner } from "native-base";
+import { Spinner } from 'native-base';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 
@@ -19,12 +19,12 @@ const LoadingScreen = () => (
 );
 
 LoadingScreen.navigationOptions = {
-  title: "Cargando",
+  title: 'Cargando',
   header: {
     left: null,
     right: null,
-    style: { backgroundColor: "#2E5481" },
-    titleStyle: { color: "#fff" }
+    style: { backgroundColor: '#2E5481' },
+    titleStyle: { color: '#fff' }
   }
 };
 

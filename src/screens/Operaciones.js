@@ -1,15 +1,15 @@
-import React, { PropTypes } from "react";
-import { connect } from "react-redux";
-import { Content, Container } from "native-base";
-import { Grid, Col } from "react-native-easy-grid";
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { Content, Container } from 'native-base';
+import { Grid, Col } from 'react-native-easy-grid';
 
-import ScreenHeader from "../components/ScreenHeader";
-import DateRow from "../components/DateRow";
-import DataCard from "../components/DataCard";
-import TabIcon from "../components/TabIcon";
+import ScreenHeader from '../components/ScreenHeader';
+import DateRow from '../components/DateRow';
+import DataCard from '../components/DataCard';
+import TabIcon from '../components/TabIcon';
 
 const OperacionesScreen = ({ retenciones }) => (
-  <Container style={{ backgroundColor: "#fff" }}>
+  <Container style={{ backgroundColor: '#fff' }}>
     <ScreenHeader />
     <Content>
       <Grid style={{ marginTop: 20, marginLeft: 10, marginRight: 10 }}>
@@ -25,11 +25,11 @@ const OperacionesScreen = ({ retenciones }) => (
 );
 
 OperacionesScreen.navigationOptions = {
-  title: "Saldos",
+  title: 'Saldos',
   tabBar: {
-    icon: ({ tintColor }) => (
-      <TabIcon imageName="operaciones" tintColor={tintColor} />
-    )
+    icon: (
+      { tintColor } // eslint-disable-line react/prop-types
+    ) => <TabIcon imageName="operaciones" tintColor={tintColor} />
   }
 };
 

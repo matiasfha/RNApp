@@ -1,5 +1,5 @@
-import { SALDOS_REQUEST, SALDOS_SUCCESS, SALDOS_FAILED } from "../constants";
-import { getSaldos } from "../../api/data";
+import { SALDOS_REQUEST, SALDOS_SUCCESS, SALDOS_FAILED } from '../constants';
+import { getSaldos } from '../../api/data';
 
 export function saldosRequest() {
   return {

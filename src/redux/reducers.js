@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
 import {
   LOGIN_REQUEST,
@@ -13,9 +13,9 @@ import {
   RETENCIONES_REQUEST,
   RETENCIONES_SUCCESS,
   RETENCIONES_FAILED
-} from "./constants";
+} from './constants';
 
-import AppNavigator from "../Navigator";
+import AppNavigator from '../Navigator';
 
 const navReducer = (state, action) => {
   const newState = AppNavigator.router.getStateForAction(action, state);

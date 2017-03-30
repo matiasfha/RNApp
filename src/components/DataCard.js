@@ -1,13 +1,13 @@
-import React, { PropTypes } from "react";
-import { Text } from "native-base";
-import { Row, Col } from "react-native-easy-grid";
+import React, { PropTypes } from 'react';
+import { Text } from 'native-base';
+import { Row, Col } from 'react-native-easy-grid';
 
-const currencyFormatter = require("currency-formatter");
+const currencyFormatter = require('currency-formatter');
 
 const toMoney = value =>
   currencyFormatter.format(value, {
-    code: "CLP",
-    locale: "es-CL",
+    code: 'CLP',
+    locale: 'es-CL',
     precision: 0
   });
 
@@ -22,21 +22,21 @@ const DataCard = ({ title, value, backgroundColor }) => (
       borderRadius: 5,
       height: 80,
       marginTop: 10,
-      alignItems: "flex-start"
+      alignItems: 'flex-start'
     }}
   >
     <Col style={{ width: 80, height: 67 }}>
-      <Text style={{ fontSize: 14, color: "#fff", fontWeight: "bold" }}>
+      <Text style={{ fontSize: 14, color: '#fff', fontWeight: 'bold' }}>
         {title}
       </Text>
     </Col>
     <Col
       style={{
         height: 67,
-        alignItems: "flex-end"
+        alignItems: 'flex-end'
       }}
     >
-      <Text style={{ fontSize: 36, color: "#fff" }}>
+      <Text style={{ fontSize: 36, color: '#fff' }}>
         {toMoney(value)}
       </Text>
     </Col>
@@ -50,7 +50,7 @@ DataCard.propTypes = {
 };
 
 DataCard.defaultProps = {
-  backgroundColor: "#2C5382"
+  backgroundColor: '#2C5382'
 };
 
 export default DataCard;

@@ -1,12 +1,12 @@
-import React, { PropTypes } from "react";
-import { connect } from "react-redux";
-import { Text } from "react-native";
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { Text } from 'react-native';
 
-import BackgroundImage from "../components/BackgroundImage";
-import SigninForm from "../components/SigninForm";
-import { doLogin } from "../redux/actions";
+import BackgroundImage from '../components/BackgroundImage';
+import SigninForm from '../components/SigninForm';
+import { doLogin } from '../redux/actions';
 
-const bgImage = require("../images/fondo-logros.png");
+const bgImage = require('../images/fondo-logros.png');
 
 const Err = ({ status }) => {
   if (status === 401) {
@@ -35,16 +35,17 @@ class SigninScreen extends React.Component {
 
 SigninScreen.propTypes = {
   requesting: PropTypes.bool.isRequired,
-  error: PropTypes.number.isRequired
+  error: PropTypes.number.isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 SigninScreen.navigationOptions = {
-  title: "Iniciar Sesión",
+  title: 'Iniciar Sesión',
   header: {
     left: null,
     right: null,
-    style: { backgroundColor: "#2E5481" },
-    titleStyle: { color: "#fff" }
+    style: { backgroundColor: '#2E5481' },
+    titleStyle: { color: '#fff' }
   }
 };
 

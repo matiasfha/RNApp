@@ -1,25 +1,25 @@
-import React, { PropTypes } from "react";
-import { Image } from "react-native";
+import React, { PropTypes } from 'react';
+import { Image } from 'react-native';
 
-const ejecutivo = require("../images/tabbar/ejecutivo.png");
-const excedentes = require("../images/tabbar/excedentes.png");
-const operaciones = require("../images/tabbar/operaciones.png");
-const saldos = require("../images/tabbar/saldos.png");
-const vencimientos = require("../images/tabbar/vencimientos.png");
+const ejecutivo = require('../images/tabbar/ejecutivo.png');
+const excedentes = require('../images/tabbar/excedentes.png');
+const operaciones = require('../images/tabbar/operaciones.png');
+const saldos = require('../images/tabbar/saldos.png');
+const vencimientos = require('../images/tabbar/vencimientos.png');
 
 const TabIcon = ({ imageName, tintColor }) => {
   let icon;
   switch (imageName) {
-    case "ejecutivo":
+    case 'ejecutivo':
       icon = ejecutivo;
       break;
-    case "execedentes":
+    case 'execedentes':
       icon = excedentes;
       break;
-    case "operaciones":
+    case 'operaciones':
       icon = operaciones;
       break;
-    case "vencimientos":
+    case 'vencimientos':
       icon = vencimientos;
       break;
     default:

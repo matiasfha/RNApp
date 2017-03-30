@@ -1,8 +1,8 @@
 /* global __DEV__ */
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import { composeWithDevTools } from "remote-redux-devtools";
-import reducer from "./reducers";
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'remote-redux-devtools';
+import reducer from './reducers';
 
 const middlewares = [thunk];
 let finalMiddlwares;

@@ -1,9 +1,9 @@
-import { TabNavigator } from "react-navigation";
+import { TabNavigator } from 'react-navigation';
 
-import SaldosScreen from "./Saldos";
-import RetencionesScreen from "./Retenciones";
-import OperacionesScreen from "./Operaciones";
-import EjecutivoScreen from "./Ejecutivo";
+import SaldosScreen from './Saldos';
+import RetencionesScreen from './Retenciones';
+import OperacionesScreen from './Operaciones';
+import EjecutivoScreen from './Ejecutivo';
 
 const TabScreen = TabNavigator(
   {
@@ -17,8 +17,8 @@ const TabScreen = TabNavigator(
       header: {
         left: null,
         right: null,
-        style: { backgroundColor: "#2E5481" },
-        titleStyle: { color: "#fff" }
+        style: { backgroundColor: '#2E5481' },
+        titleStyle: { color: '#fff' }
       }
     }
   }
