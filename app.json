@@ -9,10 +9,19 @@
         "ttf"
       ]
     },
+    "icon": "src/images/Icono@3x.png",
+    "orientation": "portrait",
+    "privacy": "public",
+    "loading": {
+      "icon": "src/images/title@2x.png",
+      "backgroundImage": "src/images/fondo-logros.png",
+      "hideExponentText": "true"
+    },
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "cl.become.logros"
     },
+    "androidStatusBarColor" : "#1F3A5A",
     "android": {
       "package": "cl.become.logros"
     }
