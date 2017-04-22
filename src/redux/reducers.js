@@ -15,7 +15,7 @@ import {
   RETENCIONES_FAILED
 } from './constants';
 
-import AppNavigator from '../Navigator';
+import AppNavigator from '../navigators/Navigator';
 
 const navReducer = (state, action) => {
   const newState = AppNavigator.router.getStateForAction(action, state);

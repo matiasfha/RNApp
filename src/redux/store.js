@@ -7,12 +7,12 @@ import reducer from './reducers';
 const middlewares = [thunk];
 let finalMiddlwares;
 if (__DEV__) {
-  const { createLogger } = require(`redux-logger`); // eslint-disable-line global-require
+  /* const { createLogger } = require(`redux-logger`); // eslint-disable-line global-require
   const logger = createLogger({
     collapsed: (getState, action, logEntry) => !logEntry.error
   });
 
-  middlewares.push(logger);
+  middlewares.push(logger);*/
   finalMiddlwares = composeWithDevTools(applyMiddleware(...middlewares));
 } else {
   finalMiddlwares = applyMiddleware(...middlewares);

@@ -19,6 +19,13 @@ Err.propTypes = {
 };
 
 class SigninScreen extends React.Component {
+  componentDidMount() {
+    this.handleSubmit({
+      rut: 'PrU3BA-1',
+      password: 'CL@v3-1'
+    });
+  }
+
   handleSubmit = ({ rut, password }) =>
     this.props.dispatch(doLogin({ rut, password }));
 

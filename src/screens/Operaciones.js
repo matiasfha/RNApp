@@ -15,8 +15,20 @@ const OperacionesScreen = ({ retenciones }) => (
       <Grid style={{ marginTop: 20, marginLeft: 10, marginRight: 10 }}>
         <Col>
           <DateRow />
-          <DataCard title="En Curso" value={retenciones.data.curso} />
-          <DataCard title="Vigentes" value={retenciones.data.vigentes} />
+          <DataCard
+            title="En Curso"
+            value={retenciones.data.curso}
+            clickable
+            route="OperacionesDetails"
+            params={{ encurso: true }}
+          />
+          <DataCard
+            title="Vigentes"
+            value={retenciones.data.vigentes}
+            clickable
+            route="OperacionesDetails"
+            params={{ vigentes: true }}
+          />
         </Col>
       </Grid>
     </Content>
@@ -25,12 +37,18 @@ const OperacionesScreen = ({ retenciones }) => (
 );
 
 OperacionesScreen.navigationOptions = {
-  title: 'Saldos',
   tabBar: {
     icon: (
       { tintColor } // eslint-disable-line react/prop-types
     ) => <TabIcon imageName="operaciones" tintColor={tintColor} />
-  }
+  },
+  header: {
+    left: null,
+    right: null,
+    style: { backgroundColor: '#2E5481' },
+    titleStyle: { color: '#fff' }
+  },
+  title: 'Operaciones'
 };
 
 const shape = PropTypes.shape;

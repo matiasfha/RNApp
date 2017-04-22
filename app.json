@@ -13,9 +13,9 @@
     "orientation": "portrait",
     "privacy": "public",
     "loading": {
-      "icon": "src/images/title@2x.png",
+      "icon": "src/images/title.png",
       "backgroundImage": "src/images/fondo-logros.png",
-      "hideExponentText": "true"
+      "hideExponentText": true
     },
     "ios": {
       "supportsTablet": false,

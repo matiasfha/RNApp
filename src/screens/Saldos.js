@@ -46,6 +46,12 @@ SaldosScreen.navigationOptions = {
     icon: (
       { tintColor } // eslint-disable-line react/prop-types
     ) => <TabIcon imageName="saldos" tintColor={tintColor} />
+  },
+  header: {
+    left: null,
+    right: null,
+    style: { backgroundColor: '#2E5481' },
+    titleStyle: { color: '#fff' }
   }
 };
 
