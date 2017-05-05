@@ -1,10 +1,10 @@
-import React from 'react';
-import Exponent from 'expo';
-import { addNavigationHelpers } from 'react-navigation';
-import { Provider, connect } from 'react-redux';
+import React from "react";
+import Exponent from "expo";
+import { addNavigationHelpers } from "react-navigation";
+import { Provider, connect } from "react-redux";
 
-import Store from './src/redux/store';
-import AppNavigator from './src/navigators/Navigator';
+import Store from "./src/redux/store";
+import AppNavigator from "./src/navigators/Navigator";
 
 let AppWithNavigationState = ({ dispatch, nav }) => (
   <AppNavigator
@@ -29,15 +29,16 @@ class App extends React.Component {
   };
 
   async componentWillMount() {
-    /*if (Platform.OS === 'android') {
+    /* if (Platform.OS === 'android') {
       await Exponent.Font.loadAsync({
         Roboto: require('native-base/Fonts/Roboto.ttf'), //eslint-disable-line
         Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf') //eslint-disable-line
       });
     }*/
     await Exponent.Font.loadAsync({
-      'Ionicons': require('native-base/Fonts/Ionicons.ttf') //eslint-disable-line
+      Ionicons: require("native-base/Fonts/Ionicons.ttf") //eslint-disable-line
     });
+
     this.setState({ isReady: true });
   }
 
@@ -50,7 +51,7 @@ class App extends React.Component {
       <Provider store={Store}>
         <AppWithNavigationState />
       </Provider>
-    )
+    );
   }
 }
 

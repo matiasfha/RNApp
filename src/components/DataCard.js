@@ -1,47 +1,62 @@
-import React, { PropTypes } from 'react';
-import { Text } from 'native-base';
-import { Row, Col } from 'react-native-easy-grid';
-import { View } from 'react-native';
+import React, { PropTypes } from "react";
+import { Text } from "native-base";
+import { Row, Col } from "react-native-easy-grid";
+import { View } from "react-native";
 
-import NavigateButton from './NavigateButton';
+import NavigateButton from "./NavigateButton";
+import { toMoney } from "../utils";
 
-const currencyFormatter = require('currency-formatter');
-
-const toMoney = value =>
-  currencyFormatter.format(value, {
-    code: 'CLP',
-    locale: 'es-CL',
-    precision: 0
-  });
+const Content = ({ currency = true, value, str }) => {
+  //eslint-disable-line
+  let text;
+  if (str) {
+    text = str;
+  }
+  if (value) {
+    text = currency ? toMoney(value) : value;
+  }
+  return (
+    <Text style={{ fontSize: 36, color: "#fff" }}>
+      {text}
+    </Text>
+  );
+};
 
 const DataCard = (
-  { title, value, backgroundColor, clickable = false, route, params = {} }
+  {
+    title,
+    value,
+    backgroundColor,
+    clickable = false,
+    route,
+    params = {},
+    currency = true,
+    str
+  }
 ) => {
   const Columns = () => {
     const baseStyle = {
       paddingBottom: 20,
       paddingRight: 10,
-      alignItems: 'flex-start',
-      justifyContent: 'flex-start',
-      flexDirection: 'row',
+      alignItems: "flex-start",
+      justifyContent: "flex-start",
+      flexDirection: "row",
       flex: 1
     };
     return (
       <View style={baseStyle}>
         <Col style={{ width: 80, height: 67 }}>
-          <Text style={{ fontSize: 14, color: '#fff', fontWeight: 'bold' }}>
+          <Text style={{ fontSize: 14, color: "#fff", fontWeight: "bold" }}>
             {title}
           </Text>
         </Col>
         <Col
           style={{
             height: 67,
-            alignItems: 'flex-end'
+            alignItems: "flex-end"
           }}
         >
-          <Text style={{ fontSize: 36, color: '#fff' }}>
-            {toMoney(value)}
-          </Text>
+          <Content currency={currency} value={value} str={str} />
         </Col>
       </View>
     );
@@ -64,7 +79,7 @@ const DataCard = (
         borderRadius: 5,
         height: 80,
         marginTop: 10,
-        alignItems: 'flex-start'
+        alignItems: "flex-start"
       }}
     >
       {clickable ? <Button /> : <Columns />}
@@ -74,18 +89,23 @@ const DataCard = (
 
 DataCard.propTypes = {
   title: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.number,
   backgroundColor: PropTypes.string,
   clickable: PropTypes.bool,
   route: PropTypes.string,
-  params: PropTypes.object //eslint-disable-line
+  params: PropTypes.object, // eslint-disable-line
+  currency: PropTypes.bool,
+  str: PropTypes.string
 };
 
 DataCard.defaultProps = {
-  backgroundColor: '#2C5382',
+  value: null,
+  backgroundColor: "#2C5382",
   clickable: false,
-  route: '',
-  params: {}
+  route: "",
+  params: {},
+  currency: true,
+  str: null
 };
 
 export default DataCard;

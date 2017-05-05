@@ -1,19 +1,21 @@
 /* global fetch */
-import { config, status } from './base';
+import { config, status } from "./base";
 
 function request(url, rut, password) {
   const hash = config.getHash({ rut, password });
   return fetch(url, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Basic ${hash}`,
-      Accept: 'application/json'
+      Accept: "application/json"
     }
   })
     .then(response => status(response))
     .then(response => response.json())
-    .catch(error => Promise.reject(error));
+    .catch(error => {
+      Promise.reject(error);
+    });
 }
 
 export function getSaldos({ rut, password }) {
@@ -33,5 +35,15 @@ export function getOperaciones({ rut, password }) {
 
 export function getRetenciones({ rut, password }) {
   const url = `${config.host}/retenciones`;
+  return request(url, rut, password);
+}
+
+export function getOperacionesEnCurso({ rut, password }) {
+  const url = `${config.host}/operaciones/curso?offset=0&limit=20`;
+  return request(url, rut, password);
+}
+
+export function getOperacionesVigentes({ rut, password }) {
+  const url = `${config.host}/operaciones/vigente?offset=0&limit=20`;
   return request(url, rut, password);
 }
