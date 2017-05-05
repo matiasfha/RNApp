@@ -9,8 +9,8 @@ const login = ({ rut, password }) => {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Basic ${hash}`,
-      Accept: 'application/json'
-    }
+      Accept: 'application/json',
+    },
   })
     .then(response => status(response))
     .then(response => response.json())

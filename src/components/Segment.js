@@ -1,22 +1,22 @@
-import React, { PropTypes } from "react";
-import { Segment, Button, Text } from "native-base";
+import React, { PropTypes } from 'react';
+import { Segment, Button, Text } from 'native-base';
 
 const styles = active => ({
   segment: {
-    borderColor: "#2E5481",
-    justifyContent: "space-between"
+    borderColor: '#2E5481',
+    justifyContent: 'space-between',
   },
   button: {
-    borderColor: "#2E5481",
-    backgroundColor: active ? "#2E5481" : "transparent",
+    borderColor: '#2E5481',
+    backgroundColor: active ? '#2E5481' : 'transparent',
     flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center"
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
-    color: active ? "#fff" : "#2E5481"
-  }
+    color: active ? '#fff' : '#2E5481',
+  },
 });
 
 const SegmentBar = ({ active = true, handleSegmentClick }) => (
@@ -25,7 +25,7 @@ const SegmentBar = ({ active = true, handleSegmentClick }) => (
       first
       active={active}
       style={styles(active).button}
-      onPress={() => handleSegmentClick("encurso")}
+      onPress={() => handleSegmentClick('encurso')}
     >
       <Text style={styles(active).text}>En curso</Text>
     </Button>
@@ -33,7 +33,7 @@ const SegmentBar = ({ active = true, handleSegmentClick }) => (
       last
       active={!active}
       style={styles(!active).button}
-      onPress={() => handleSegmentClick("vigentes")}
+      onPress={() => handleSegmentClick('vigentes')}
     >
       <Text style={styles(!active).text}>Vigentes</Text>
     </Button>
@@ -42,11 +42,11 @@ const SegmentBar = ({ active = true, handleSegmentClick }) => (
 
 SegmentBar.propTypes = {
   active: PropTypes.bool.isRequired,
-  handleSegmentClick: PropTypes.func
+  handleSegmentClick: PropTypes.func,
 };
 
 SegmentBar.defaultProps = {
-  handleSegmentClick: function noop() {}
+  handleSegmentClick: function noop() {},
 };
 
 export default SegmentBar;

@@ -1,30 +1,35 @@
-import React from "react";
-import TabIcon from "../components/TabIcon";
+import React from 'react';
+import TabIcon from '../components/TabIcon';
+import MenuButton from '../components/MenuButton';
+import { osComponent } from '../utils';
 
-const navOptions = ({ title = null, imageName = null, tabLabel = null }) => {
+const navOptions = (
+  { headerMenu = true, title = null, imageName = null, tabLabel = null }
+) => {
   const base = {
-    headerLeft: null,
+    headerLeft: osComponent(headerMenu ? <MenuButton /> : null, null),
     headerRight: null,
-    headerStyle: { backgroundColor: "#2E5481" },
-    headerTitleStyle: { color: "#fff" }
+    headerStyle: { backgroundColor: '#2E5481' },
+    headerTitleStyle: { color: '#fff' },
   };
   const addTab = (image = null) =>
     image
       ? {
-          tabBarIcon: (
+          [osComponent('drawerIcon', 'tabBarIcon')]: (
             { tintColor } // eslint-disable-line react/prop-types
-          ) => <TabIcon imageName={imageName} tintColor={tintColor} />
+          ) => <TabIcon imageName={imageName} tintColor={tintColor} />,
         }
       : null;
 
   const addTitle = t => t ? { headerTitle: t } : null;
-  const addTabLabel = l => l ? { tabBarLabel: l } : null;
+  const addTabLabel = l =>
+    l ? { [osComponent('drawerLabel', 'tabBarLabel')]: l } : null;
 
   return {
     ...base,
     ...addTab(imageName),
     ...addTitle(title),
-    ...addTabLabel(tabLabel)
+    ...addTabLabel(tabLabel),
   };
 };
 

@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
 import {
   LOGIN_REQUEST,
@@ -22,10 +22,10 @@ import {
   VIGENTES_FAILED,
   INDICADORES_REQUEST,
   INDICADORES_SUCCESS,
-  INDICADORES_FAILED
-} from "./constants";
+  INDICADORES_FAILED,
+} from './constants';
 
-import AppNavigator from "../navigators/Navigator";
+import AppNavigator from '../navigators/Navigator';
 
 const navReducer = (state, action) => {
   const newState = AppNavigator.router.getStateForAction(action, state);
@@ -34,7 +34,7 @@ const navReducer = (state, action) => {
 
 const userInitialState = {
   requesting: false,
-  error: 0
+  error: 0,
 };
 function userReducer(state = userInitialState, action) {
   switch (action.type) {
@@ -54,28 +54,28 @@ function userReducer(state = userInitialState, action) {
 const dataInitialState = {
   saldos: {
     requesting: false,
-    data: []
+    data: [],
   },
   excedentes: {
     requesting: false,
-    data: []
+    data: [],
   },
   retenciones: {
     requesting: false,
-    data: []
+    data: [],
   },
   operaciones: {
     requesting: false,
-    data: []
+    data: [],
   },
   encurso: {
     requesting: false,
-    data: []
+    data: [],
   },
   vigentes: {
     requesting: false,
-    data: []
-  }
+    data: [],
+  },
 };
 function dataReducer(state = dataInitialState, action) {
   switch (action.type) {
@@ -84,72 +84,72 @@ function dataReducer(state = dataInitialState, action) {
     case SALDOS_SUCCESS:
       return {
         ...state,
-        saldos: { requesting: false, data: action.payload, error: 0 }
+        saldos: { requesting: false, data: action.payload, error: 0 },
       };
     case SALDOS_FAILED:
       return {
         ...state,
-        saldos: { requesting: false, data: [], error: action.payload }
+        saldos: { requesting: false, data: [], error: action.payload },
       };
     case RETENCIONES_REQUEST:
       return {
         ...state,
-        retenciones: { requesting: true, data: [], error: 0 }
+        retenciones: { requesting: true, data: [], error: 0 },
       };
     case RETENCIONES_SUCCESS:
       return {
         ...state,
-        retenciones: { requesting: false, data: action.payload, error: 0 }
+        retenciones: { requesting: false, data: action.payload, error: 0 },
       };
     case RETENCIONES_FAILED:
       return {
         ...state,
-        retenciones: { requesting: false, data: [], error: action.payload }
+        retenciones: { requesting: false, data: [], error: action.payload },
       };
     case OPERACIONES_REQUEST:
       return {
         ...state,
-        operaciones: { requesting: true, data: [], error: 0 }
+        operaciones: { requesting: true, data: [], error: 0 },
       };
     case OPERACIONES_SUCCESS:
       return {
         ...state,
-        operaciones: { requesting: false, data: action.payload, error: 0 }
+        operaciones: { requesting: false, data: action.payload, error: 0 },
       };
     case OPERACIONES_FAILED:
       return {
         ...state,
-        operaciones: { requesting: false, data: [], error: action.payload }
+        operaciones: { requesting: false, data: [], error: action.payload },
       };
     case CURSO_REQUEST:
       return {
         ...state,
-        encurso: { requesting: true, data: [], error: 0 }
+        encurso: { requesting: true, data: [], error: 0 },
       };
     case CURSO_SUCCESS:
       return {
         ...state,
-        encurso: { requesting: false, data: action.payload, error: 0 }
+        encurso: { requesting: false, data: action.payload, error: 0 },
       };
     case CURSO_FAILED:
       return {
         ...state,
-        encurso: { requesting: false, data: [], error: action.payload }
+        encurso: { requesting: false, data: [], error: action.payload },
       };
     case VIGENTES_REQUEST:
       return {
         ...state,
-        vigentes: { requesting: true, data: [], error: 0 }
+        vigentes: { requesting: true, data: [], error: 0 },
       };
     case VIGENTES_SUCCESS:
       return {
         ...state,
-        vigentes: { requesting: false, data: action.payload, error: 0 }
+        vigentes: { requesting: false, data: action.payload, error: 0 },
       };
     case VIGENTES_FAILED:
       return {
         ...state,
-        vigentes: { requesting: false, data: [], error: action.payload }
+        vigentes: { requesting: false, data: [], error: action.payload },
       };
     default:
       return state;
@@ -161,7 +161,7 @@ const indicadoresState = {
   moneda: {},
   santoral: {},
   requesting: false,
-  filled: false
+  filled: false,
 };
 
 function indicadoresReducer(state = indicadoresState, action) {
@@ -172,14 +172,14 @@ function indicadoresReducer(state = indicadoresState, action) {
       return {
         ...state,
         requesting: false,
-        error: action.payload
+        error: action.payload,
       };
     case INDICADORES_SUCCESS:
       return {
         ...state,
         requesting: false,
         filled: true,
-        ...action.payload
+        ...action.payload,
       };
     default:
       return state;
@@ -190,5 +190,5 @@ export default combineReducers({
   nav: navReducer,
   user: userReducer,
   data: dataReducer,
-  indicadores: indicadoresReducer
+  indicadores: indicadoresReducer,
 });

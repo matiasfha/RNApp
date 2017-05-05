@@ -1,14 +1,14 @@
-import React, { PropTypes } from "react";
-import { connect } from "react-redux";
-import { Content, Container } from "native-base";
-import { Grid, Col } from "react-native-easy-grid";
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { Content, Container } from 'native-base';
+import { Grid, Col } from 'react-native-easy-grid';
 
-import ScreenHeader from "../components/ScreenHeader";
-import DateRow from "../components/DateRow";
-import DataCard from "../components/DataCard";
+import ScreenHeader from '../components/ScreenHeader';
+import DateRow from '../components/DateRow';
+import DataCard from '../components/DataCard';
 
 const RetencionesView = ({ retenciones }) => (
-  <Container style={{ backgroundColor: "#fff" }}>
+  <Container style={{ backgroundColor: '#fff' }}>
     <ScreenHeader />
     <Content>
       <Grid style={{ marginTop: 20, marginLeft: 10, marginRight: 10 }}>
@@ -35,12 +35,12 @@ RetencionesView.propTypes = {
       disponible: number,
       transferido: number,
       ocupado: number,
-      liberar: number
+      liberar: number,
     }).isRequired,
-    error: number
-  }).isRequired
+    error: number,
+  }).isRequired,
 };
 const mapStateToProps = state => ({
-  retenciones: state.data.retenciones
+  retenciones: state.data.retenciones,
 });
 export default connect(mapStateToProps)(RetencionesView);

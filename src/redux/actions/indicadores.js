@@ -1,27 +1,27 @@
 import {
   INDICADORES_REQUEST,
   INDICADORES_SUCCESS,
-  INDICADORES_FAILED
-} from "../constants";
-import indicadores from "../../api/indicadores";
+  INDICADORES_FAILED,
+} from '../constants';
+import indicadores from '../../api/indicadores';
 
 export function indicadoresRequest() {
   return {
-    type: INDICADORES_REQUEST
+    type: INDICADORES_REQUEST,
   };
 }
 
 export function indicadoresFailed(data) {
   return {
     type: INDICADORES_FAILED,
-    payload: data
+    payload: data,
   };
 }
 
 export function indicadoresSuccess(data) {
   return {
     type: INDICADORES_SUCCESS,
-    payload: data
+    payload: data,
   };
 }
 

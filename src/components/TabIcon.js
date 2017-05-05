@@ -31,6 +31,6 @@ const TabIcon = ({ imageName, tintColor }) => {
 
 TabIcon.propTypes = {
   imageName: PropTypes.string.isRequired,
-  tintColor: PropTypes.string.isRequired
+  tintColor: PropTypes.string.isRequired,
 };
 export default TabIcon;

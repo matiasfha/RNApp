@@ -6,8 +6,8 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     width: null,
-    height: null
-  }
+    height: null,
+  },
 });
 
 const BackgroundImage = ({ source, children }) => (
@@ -18,7 +18,7 @@ const BackgroundImage = ({ source, children }) => (
 
 BackgroundImage.propTypes = {
   source: PropTypes.any.isRequired, //eslint-disable-line
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default BackgroundImage;

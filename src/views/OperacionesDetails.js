@@ -1,14 +1,14 @@
-import React, { PropTypes } from "react";
-import { connect } from "react-redux";
-import { Content, Container, List, Card, CardItem, Body } from "native-base";
-import { Grid, Col, Row } from "react-native-easy-grid";
-import { View } from "react-native";
-import AutoLink from "react-native-autolink";
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { Content, Container, List, Card, CardItem, Body } from 'native-base';
+import { Grid, Col, Row } from 'react-native-easy-grid';
+import { View } from 'react-native';
+import AutoLink from 'react-native-autolink';
 
-import ScreenHeader from "../components/ScreenHeader";
-import SegmentBar from "../components/Segment";
-import OperacionesItem from "../components/OperacionesItem";
-import "../redux/actions";
+import ScreenHeader from '../components/ScreenHeader';
+import SegmentBar from '../components/Segment';
+import OperacionesItem from '../components/OperacionesItem';
+import '../redux/actions';
 
 const Message = (
   { dispatch } //eslint-disable-line
@@ -19,9 +19,9 @@ const Message = (
         <Body>
           <View
             style={{
-              justifyContent: "flex-end",
-              alignItems: "flex-start",
-              flexDirection: "row"
+              justifyContent: 'flex-end',
+              alignItems: 'flex-start',
+              flexDirection: 'row',
             }}
           >
             <AutoLink
@@ -42,7 +42,7 @@ const OperacionesList = ({ data }) => (
         value: item.monto,
         operacion: item.operacion,
         date: item.fechaOtorgamiento,
-        sucursal: item.sucursal
+        sucursal: item.sucursal,
       };
       if (item.estado) {
         attr.status = item.estado.identificador;
@@ -53,20 +53,20 @@ const OperacionesList = ({ data }) => (
 );
 
 OperacionesList.propTypes = {
-  data: PropTypes.object.isRequired //eslint-disable-line
+  data: PropTypes.object.isRequired, //eslint-disable-line
 };
 
 class OperacionesDetailsViews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      encurso: !!props.route.params.encurso
+      encurso: !!props.route.params.encurso,
     };
   }
 
   handleSegmentClick = section => {
     this.setState({
-      encurso: section === "encurso"
+      encurso: section === 'encurso',
     });
   };
 
@@ -75,7 +75,7 @@ class OperacionesDetailsViews extends React.Component {
     const { data } = this.props;
 
     return (
-      <Container style={{ backgroundColor: "#fff" }}>
+      <Container style={{ backgroundColor: '#fff' }}>
         <ScreenHeader />
         <Content>
           <Grid style={{ marginTop: 20, marginLeft: 10, marginRight: 10 }}>
@@ -98,13 +98,13 @@ class OperacionesDetailsViews extends React.Component {
 
 OperacionesDetailsViews.propTypes = {
   data: PropTypes.object.isRequired, //eslint-disable-line
-  route: PropTypes.object.isRequired //eslint-disable-line
+  route: PropTypes.object.isRequired, //eslint-disable-line
 };
 
 const mapStateToProps = state => ({
   data: {
     encurso: state.data.encurso.data,
-    vigentes: state.data.vigentes.data
-  }
+    vigentes: state.data.vigentes.data,
+  },
 });
 export default connect(mapStateToProps)(OperacionesDetailsViews);

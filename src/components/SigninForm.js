@@ -1,14 +1,14 @@
-import React, { PropTypes, Component } from "react";
-import { Button, Item, Input, Text, Label } from "native-base";
+import React, { PropTypes, Component } from 'react';
+import { Button, Item, Input, Text, Label } from 'native-base';
 
-import { View } from "react-native";
+import { View } from 'react-native';
 
 class SigninForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rut: "",
-      password: ""
+      rut: '',
+      password: '',
     };
   }
 
@@ -20,9 +20,9 @@ class SigninForm extends Component {
       <View>
         <View
           style={{
-            backgroundColor: "#fff",
+            backgroundColor: '#fff',
             marginTop: 40,
-            marginBottom: 40
+            marginBottom: 40,
           }}
         >
           <Item inlineLabel underline>
@@ -35,7 +35,7 @@ class SigninForm extends Component {
             />
           </Item>
 
-          <Item inlineLabel style={{ borderBottomColor: "#fff" }}>
+          <Item inlineLabel style={{ borderBottomColor: '#fff' }}>
             <Label style={{ marginLeft: 18 }}>Password</Label>
             <Input
               name="password"
@@ -54,11 +54,11 @@ class SigninForm extends Component {
           onPress={this.submit}
           bordered={false}
           style={{
-            backgroundColor: "white",
-            justifyContent: "flex-start"
+            backgroundColor: 'white',
+            justifyContent: 'flex-start',
           }}
         >
-          <Text style={{ color: "#2E5481" }}> Ingresar </Text>
+          <Text style={{ color: '#2E5481' }}> Ingresar </Text>
         </Button>
       </View>
     );
@@ -67,7 +67,7 @@ class SigninForm extends Component {
 
 SigninForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  submitting: PropTypes.bool.isRequired
+  submitting: PropTypes.bool.isRequired,
 };
 
 export default SigninForm;

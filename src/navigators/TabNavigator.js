@@ -9,7 +9,7 @@ const TabScreen = TabNavigator({
   Saldos: { screen: SaldosScreen },
   Operaciones: { screen: OperacionesNavigator },
   Retenciones: { screen: RetencionesScreen },
-  Ejecutivo: { screen: EjecutivoScreen }
+  Ejecutivo: { screen: EjecutivoScreen },
 });
 
 export default TabScreen;
