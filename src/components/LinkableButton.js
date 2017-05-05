@@ -1,14 +1,14 @@
-import React, { PropTypes } from "react";
-import { Text, Button } from "native-base";
-import { Linking } from "react-native";
-import AutoLink from "react-native-autolink";
+import React, { PropTypes } from 'react';
+import { Text, Button } from 'native-base';
+import { Linking } from 'react-native';
+import AutoLink from 'react-native-autolink';
 
 const handleClick = url => {
   Linking.canOpenURL(url).then(supported => {
     if (supported) {
       Linking.openURL(url);
     } else {
-      console.log(`Don't know how to open URI: ${url}`);
+      console.log(`Don't know how to open URI: ${url}`); //eslint-disable-line
     }
 
     // TODO LOG THIS SOMEWHERE console.log(`Don't know how to open URI: ${url}`);
@@ -25,8 +25,8 @@ const UrlButton = ({ url, content }) => (
     <AutoLink
       text={content}
       linkStyle={{
-        color: "#000",
-        fontSize: 18
+        color: '#000',
+        fontSize: 18,
       }}
     />
   </Button>
@@ -34,7 +34,7 @@ const UrlButton = ({ url, content }) => (
 
 UrlButton.propTypes = {
   url: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired
+  content: PropTypes.string.isRequired,
 };
 
 const LinkableButton = ({ url, content }) => {
@@ -44,8 +44,8 @@ const LinkableButton = ({ url, content }) => {
   return (
     <Text
       style={{
-        color: "#000",
-        fontSize: 18
+        color: '#000',
+        fontSize: 18,
       }}
     >
       {content}
@@ -55,10 +55,10 @@ const LinkableButton = ({ url, content }) => {
 
 LinkableButton.propTypes = {
   url: PropTypes.string,
-  content: PropTypes.string.isRequired
+  content: PropTypes.string.isRequired,
 };
 
 LinkableButton.defaultProps = {
-  url: null
+  url: null,
 };
 export default LinkableButton;

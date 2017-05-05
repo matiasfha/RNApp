@@ -1,22 +1,22 @@
-import React, { PropTypes } from "react";
-import { connect } from "react-redux";
-import { Content, Container, Text } from "native-base";
-import { Grid, Col, Row } from "react-native-easy-grid";
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { Content, Container, Text } from 'native-base';
+import { Grid, Col, Row } from 'react-native-easy-grid';
 
-import LinkableButton from "../components/LinkableButton";
+import LinkableButton from '../components/LinkableButton';
 
 const Item = ({ title, content, url = null }) => (
   <Row
     style={{
       marginBottom: 15,
-      borderBottomColor: "#D6D6D6",
+      borderBottomColor: '#D6D6D6',
       borderBottomWidth: 1,
-      paddingBottom: 14
+      paddingBottom: 14,
     }}
   >
     <Col>
       <Row>
-        <Text style={{ color: "#2E5481", fontSize: 14, marginBottom: 5 }}>
+        <Text style={{ color: '#2E5481', fontSize: 14, marginBottom: 5 }}>
           {title}
         </Text>
       </Row>
@@ -30,17 +30,17 @@ const Item = ({ title, content, url = null }) => (
 Item.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  url: PropTypes.string
+  url: PropTypes.string,
 };
 
 Item.defaultProps = {
-  url: null
+  url: null,
 };
 
 const EjecutivoView = (
   { nombre, telefono, direccion, email, ubicacion } // eslint-disable-line no-unused-vars
 ) => (
-  <Container style={{ backgroundColor: "#fff" }}>
+  <Container style={{ backgroundColor: '#fff' }}>
     <Content style={{ marginLeft: 15, marginRight: 15 }}>
       <Grid style={{ marginTop: 25 }}>
         <Col>
@@ -67,19 +67,19 @@ EjecutivoView.propTypes = {
   email: PropTypes.string.isRequired,
   ubicacion: PropTypes.shape({
     lat: PropTypes.string.isRequired,
-    long: PropTypes.string.isRequired
-  }).isRequired
+    long: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({
   nombre: state.user.ejecutivo.nombre,
   direccion: state.user.ejecutivo.sucursal.direccion,
   telefono: state.user.ejecutivo.sucursal.telefono
-    .split(" ")
-    .join("")
-    .replace("(", "")
-    .replace(")", ""),
+    .split(' ')
+    .join('')
+    .replace('(', '')
+    .replace(')', ''),
   email: state.user.ejecutivo.sucursal.email,
-  ubicacion: state.user.ejecutivo.sucursal.ubicacion
+  ubicacion: state.user.ejecutivo.sucursal.ubicacion,
 });
 export default connect(mapStateToProps)(EjecutivoView);

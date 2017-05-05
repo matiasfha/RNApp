@@ -12,7 +12,7 @@ const Footer = ({ text }) => (
           color: '#000',
           fontSize: 14,
           paddingTop: 10,
-          paddingBottom: 10
+          paddingBottom: 10,
         }}
       >
         {text}
@@ -22,10 +22,10 @@ const Footer = ({ text }) => (
 );
 
 Footer.propTypes = {
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
-  text: state.user.mensaje
+  text: state.user.mensaje,
 });
 export default connect(mapStateToProps)(Footer);

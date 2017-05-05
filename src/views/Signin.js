@@ -1,26 +1,26 @@
-import React, { PropTypes } from "react";
-import { connect } from "react-redux";
-import { Text, Image, StyleSheet, Linking, Alert } from "react-native";
-import { Container, Content, Icon, Button } from "native-base";
-import { Row, Grid } from "react-native-easy-grid";
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { Text, Image, StyleSheet, Linking, Alert } from 'react-native';
+import { Container, Content, Icon, Button } from 'native-base';
+import { Row, Grid } from 'react-native-easy-grid';
 
-import BackgroundImage from "../components/BackgroundImage";
-import SigninForm from "../components/SigninForm";
-import { navigate, doLogin } from "../redux/actions";
-import { loginReset } from "../redux/actions/login";
+import BackgroundImage from '../components/BackgroundImage';
+import SigninForm from '../components/SigninForm';
+import { navigate, doLogin } from '../redux/actions';
+import { loginReset } from '../redux/actions/login';
 
-const bgImage = require("../images/fondo-logros.png");
+const bgImage = require('../images/fondo-logros.png');
 
 const styles = StyleSheet.create({
   titleImage: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 30
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 30,
+  },
 });
 
-const titleImg = require("../images/title.png");
+const titleImg = require('../images/title.png');
 
 let alertShown = false;
 
@@ -37,15 +37,15 @@ class SigninView extends React.Component {
   componentDidUpdate(nextProps) {
     const { error } = nextProps;
     if (error > 0) {
-      let text = "Ha ocurrido un error inesperado. Intente nuevamente o contacte a soporte";
+      let text = 'Ha ocurrido un error inesperado. Intente nuevamente o contacte a soporte';
       if (error === 401) {
-        text = "Usuario o contraseña incorrectos";
+        text = 'Usuario o contraseña incorrectos';
       }
       if (error === 404) {
-        text = "Debe ingresar usuario y contraseña";
+        text = 'Debe ingresar usuario y contraseña';
       }
       if (!alertShown) {
-        Alert.alert("Error", text, [{ text: "OK" }], { cancellable: true });
+        Alert.alert('Error', text, [{ text: 'OK' }], { cancellable: true });
         alertShown = true;
       }
     }
@@ -76,15 +76,15 @@ class SigninView extends React.Component {
                 iconRight
                 bordered={false}
                 style={{
-                  backgroundColor: "white",
+                  backgroundColor: 'white',
                   marginTop: 40,
-                  justifyContent: "space-between"
+                  justifyContent: 'space-between',
                 }}
                 onPress={() =>
-                  Linking.openURL("https://logros.cl/contacto-factoring/")}
+                  Linking.openURL('https://logros.cl/contacto-factoring/')}
               >
-                <Text style={{ color: "#B72020" }}> Aún no soy cliente </Text>
-                <Icon name="arrow-forward" style={{ color: "#95989A" }} />
+                <Text style={{ color: '#B72020' }}> Aún no soy cliente </Text>
+                <Icon name="arrow-forward" style={{ color: '#95989A' }} />
               </Button>
 
               <Text
@@ -92,8 +92,8 @@ class SigninView extends React.Component {
                   marginTop: 18,
                   marginLeft: 18,
                   marginRight: 18,
-                  color: "#646464",
-                  fontSize: 14
+                  color: '#646464',
+                  fontSize: 14,
                 }}
               >
                 Si aún no es cliente de Logros Factoring, conozca
@@ -108,15 +108,15 @@ class SigninView extends React.Component {
                 iconLeft
                 bordered={false}
                 style={{
-                  backgroundColor: "white",
+                  backgroundColor: 'white',
                   marginTop: 55,
-                  justifyContent: "space-between"
+                  justifyContent: 'space-between',
                 }}
-                onPress={() => dispatch(navigate("Indicadores"))}
+                onPress={() => dispatch(navigate('Indicadores'))}
               >
-                <Icon name="options" style={{ color: "#000" }} />
-                <Text style={{ color: "#000" }}> Indicadores económicos </Text>
-                <Icon name="arrow-forward" style={{ color: "#95989A" }} />
+                <Icon name="options" style={{ color: '#000' }} />
+                <Text style={{ color: '#000' }}> Indicadores económicos </Text>
+                <Icon name="arrow-forward" style={{ color: '#95989A' }} />
               </Button>
 
             </Grid>
@@ -130,11 +130,11 @@ class SigninView extends React.Component {
 SigninView.propTypes = {
   requesting: PropTypes.bool.isRequired,
   error: PropTypes.number.isRequired,
-  dispatch: PropTypes.func.isRequired
+  dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   requesting: state.user.requesting,
-  error: state.user.error
+  error: state.user.error,
 });
 export default connect(mapStateToProps)(SigninView);

@@ -1,12 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import navOptions from "./navOptions";
-import SigninView from "../views/Signin";
+import navOptions from './navOptions';
+import SigninView from '../views/Signin';
 
 const SigninScreen = () => <SigninView />;
 
 SigninScreen.navigationOptions = navOptions({
-  title: "Iniciar Sesión"
+  title: 'Iniciar Sesión',
+  headerMenu: false,
 });
 
 export default SigninScreen;

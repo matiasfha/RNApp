@@ -1,15 +1,15 @@
-import React, { PropTypes } from "react";
-import { connect } from "react-redux";
-import { Content, Container } from "native-base";
-import { Grid, Col } from "react-native-easy-grid";
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { Content, Container } from 'native-base';
+import { Grid, Col } from 'react-native-easy-grid';
 
-import ScreenHeader from "../components/ScreenHeader";
-import DateRow from "../components/DateRow";
-import DataCard from "../components/DataCard";
-import Footer from "../components/Footer";
+import ScreenHeader from '../components/ScreenHeader';
+import DateRow from '../components/DateRow';
+import DataCard from '../components/DataCard';
+import Footer from '../components/Footer';
 
 const SaldosView = ({ saldos }) => (
-  <Container style={{ backgroundColor: "#fff" }}>
+  <Container style={{ backgroundColor: '#fff' }}>
     <ScreenHeader />
     <Content>
       <Grid style={{ marginTop: 20, marginLeft: 10, marginRight: 10 }}>
@@ -49,13 +49,13 @@ SaldosView.propTypes = {
       cheques: number,
       financiero: number,
       total: number,
-      plazo: number
+      plazo: number,
     }).isRequired,
-    error: number
-  }).isRequired
+    error: number,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({
-  saldos: state.data.saldos
+  saldos: state.data.saldos,
 });
 export default connect(mapStateToProps)(SaldosView);

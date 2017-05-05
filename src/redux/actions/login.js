@@ -2,20 +2,20 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAILED,
-  LOGIN_RESET
-} from "../constants";
+  LOGIN_RESET,
+} from '../constants';
 
 export function loginRequest(data) {
   return {
     type: LOGIN_REQUEST,
-    payload: data
+    payload: data,
   };
 }
 
 export function loginFailed(data) {
   return {
     type: LOGIN_FAILED,
-    payload: data
+    payload: data,
   };
 }
 
@@ -25,13 +25,13 @@ export function loginSuccess({ user, rut, password }) {
     payload: {
       user,
       rut,
-      password
-    }
+      password,
+    },
   };
 }
 
 export function loginReset() {
   return {
-    type: LOGIN_RESET
+    type: LOGIN_RESET,
   };
 }

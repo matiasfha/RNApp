@@ -1,14 +1,14 @@
-import React, { PropTypes } from "react";
-import { connect } from "react-redux";
-import { Content, Container } from "native-base";
-import { Grid, Col } from "react-native-easy-grid";
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { Content, Container } from 'native-base';
+import { Grid, Col } from 'react-native-easy-grid';
 
-import ScreenHeader from "../components/ScreenHeader";
-import DateRow from "../components/DateRow";
-import DataCard from "../components/DataCard";
+import ScreenHeader from '../components/ScreenHeader';
+import DateRow from '../components/DateRow';
+import DataCard from '../components/DataCard';
 
 const OperacionesView = ({ retenciones }) => (
-  <Container style={{ backgroundColor: "#fff" }}>
+  <Container style={{ backgroundColor: '#fff' }}>
     <ScreenHeader />
     <Content>
       <Grid style={{ marginTop: 20, marginLeft: 10, marginRight: 10 }}>
@@ -38,10 +38,10 @@ const OperacionesView = ({ retenciones }) => (
 );
 
 OperacionesView.propTypes = {
-  retenciones: PropTypes.any.isRequired //eslint-disable-line
+  retenciones: PropTypes.any.isRequired, //eslint-disable-line
 };
 
 const mapStateToProps = state => ({
-  retenciones: state.data.operaciones
+  retenciones: state.data.operaciones,
 });
 export default connect(mapStateToProps)(OperacionesView);

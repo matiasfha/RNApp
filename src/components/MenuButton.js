@@ -1,26 +1,28 @@
 import React, { PropTypes } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
+import { Icon } from 'native-base';
+
 import { navigate } from '../redux/actions';
 
-const NavigateButton = ({ route, params = {}, children, dispatch }) => (
+const MenuButton = ({ dispatch }) => (
   <TouchableOpacity
-    onPress={() => dispatch(navigate(route, params))}
+    onPress={() => dispatch(navigate('DrawerOpen'))}
     style={{
       flexDirection: 'row',
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
     }}
   >
-    {children}
+    <Icon
+      name="menu"
+      style={{ color: 'white', marginLeft: 10, marginTop: 5 }}
+    />
   </TouchableOpacity>
 );
 
-NavigateButton.propTypes = {
-  route: PropTypes.string.isRequired,
-  params: PropTypes.object, //eslint-disable-line
-  children: PropTypes.element.isRequired,
+MenuButton.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-export default connect()(NavigateButton);
+export default connect()(MenuButton);

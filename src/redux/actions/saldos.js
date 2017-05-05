@@ -3,21 +3,21 @@ import { getSaldos } from '../../api/data';
 
 export function saldosRequest() {
   return {
-    type: SALDOS_REQUEST
+    type: SALDOS_REQUEST,
   };
 }
 
 export function saldosFailed(data) {
   return {
     type: SALDOS_FAILED,
-    payload: data
+    payload: data,
   };
 }
 
 export function saldosSuccess(data) {
   return {
     type: SALDOS_SUCCESS,
-    payload: data
+    payload: data,
   };
 }
 

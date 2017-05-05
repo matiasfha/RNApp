@@ -1,27 +1,27 @@
 import {
   RETENCIONES_REQUEST,
   RETENCIONES_SUCCESS,
-  RETENCIONES_FAILED
+  RETENCIONES_FAILED,
 } from '../constants';
 import { getRetenciones } from '../../api/data';
 
 export function retencionesRequest() {
   return {
-    type: RETENCIONES_REQUEST
+    type: RETENCIONES_REQUEST,
   };
 }
 
 export function retencionesFailed(data) {
   return {
     type: RETENCIONES_FAILED,
-    payload: data
+    payload: data,
   };
 }
 
 export function retencionesSuccess(data) {
   return {
     type: RETENCIONES_SUCCESS,
-    payload: data
+    payload: data,
   };
 }
 
