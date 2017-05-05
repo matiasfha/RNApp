@@ -1,4 +1,9 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILED } from '../constants';
+import {
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_FAILED,
+  LOGIN_RESET
+} from "../constants";
 
 export function loginRequest(data) {
   return {
@@ -22,5 +27,11 @@ export function loginSuccess({ user, rut, password }) {
       rut,
       password
     }
+  };
+}
+
+export function loginReset() {
+  return {
+    type: LOGIN_RESET
   };
 }

@@ -1,9 +1,10 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAILED,
+  LOGIN_RESET,
   SALDOS_REQUEST,
   SALDOS_SUCCESS,
   SALDOS_FAILED,
@@ -12,10 +13,19 @@ import {
   OPERACIONES_FAILED,
   RETENCIONES_REQUEST,
   RETENCIONES_SUCCESS,
-  RETENCIONES_FAILED
-} from './constants';
+  RETENCIONES_FAILED,
+  CURSO_REQUEST,
+  CURSO_SUCCESS,
+  CURSO_FAILED,
+  VIGENTES_REQUEST,
+  VIGENTES_SUCCESS,
+  VIGENTES_FAILED,
+  INDICADORES_REQUEST,
+  INDICADORES_SUCCESS,
+  INDICADORES_FAILED
+} from "./constants";
 
-import AppNavigator from '../Navigator';
+import AppNavigator from "../navigators/Navigator";
 
 const navReducer = (state, action) => {
   const newState = AppNavigator.router.getStateForAction(action, state);
@@ -34,6 +44,8 @@ function userReducer(state = userInitialState, action) {
       return { ...state, requesting: false, error: 0, ...action.payload.user };
     case LOGIN_FAILED:
       return { ...state, requesting: false, error: action.payload };
+    case LOGIN_RESET:
+      return userInitialState;
     default:
       return state;
   }
@@ -55,6 +67,14 @@ const dataInitialState = {
   operaciones: {
     requesting: false,
     data: []
+  },
+  encurso: {
+    requesting: false,
+    data: []
+  },
+  vigentes: {
+    requesting: false,
+    data: []
   }
 };
 function dataReducer(state = dataInitialState, action) {
@@ -71,21 +91,6 @@ function dataReducer(state = dataInitialState, action) {
         ...state,
         saldos: { requesting: false, data: [], error: action.payload }
       };
-    case OPERACIONES_REQUEST:
-      return {
-        ...state,
-        operaciones: { requesting: true, data: [], error: 0 }
-      };
-    case OPERACIONES_SUCCESS:
-      return {
-        ...state,
-        operaciones: { requesting: false, data: action.payload, error: 0 }
-      };
-    case OPERACIONES_FAILED:
-      return {
-        ...state,
-        operaciones: { requesting: false, data: [], error: action.payload }
-      };
     case RETENCIONES_REQUEST:
       return {
         ...state,
@@ -101,7 +106,81 @@ function dataReducer(state = dataInitialState, action) {
         ...state,
         retenciones: { requesting: false, data: [], error: action.payload }
       };
+    case OPERACIONES_REQUEST:
+      return {
+        ...state,
+        operaciones: { requesting: true, data: [], error: 0 }
+      };
+    case OPERACIONES_SUCCESS:
+      return {
+        ...state,
+        operaciones: { requesting: false, data: action.payload, error: 0 }
+      };
+    case OPERACIONES_FAILED:
+      return {
+        ...state,
+        operaciones: { requesting: false, data: [], error: action.payload }
+      };
+    case CURSO_REQUEST:
+      return {
+        ...state,
+        encurso: { requesting: true, data: [], error: 0 }
+      };
+    case CURSO_SUCCESS:
+      return {
+        ...state,
+        encurso: { requesting: false, data: action.payload, error: 0 }
+      };
+    case CURSO_FAILED:
+      return {
+        ...state,
+        encurso: { requesting: false, data: [], error: action.payload }
+      };
+    case VIGENTES_REQUEST:
+      return {
+        ...state,
+        vigentes: { requesting: true, data: [], error: 0 }
+      };
+    case VIGENTES_SUCCESS:
+      return {
+        ...state,
+        vigentes: { requesting: false, data: action.payload, error: 0 }
+      };
+    case VIGENTES_FAILED:
+      return {
+        ...state,
+        vigentes: { requesting: false, data: [], error: action.payload }
+      };
+    default:
+      return state;
+  }
+}
+const indicadoresState = {
+  indicador: {},
+  restriccion: {},
+  moneda: {},
+  santoral: {},
+  requesting: false,
+  filled: false
+};
 
+function indicadoresReducer(state = indicadoresState, action) {
+  switch (action.type) {
+    case INDICADORES_REQUEST:
+      return { ...state, requesting: true };
+    case INDICADORES_FAILED:
+      return {
+        ...state,
+        requesting: false,
+        error: action.payload
+      };
+    case INDICADORES_SUCCESS:
+      return {
+        ...state,
+        requesting: false,
+        filled: true,
+        ...action.payload
+      };
     default:
       return state;
   }
@@ -110,5 +189,6 @@ function dataReducer(state = dataInitialState, action) {
 export default combineReducers({
   nav: navReducer,
   user: userReducer,
-  data: dataReducer
+  data: dataReducer,
+  indicadores: indicadoresReducer
 });

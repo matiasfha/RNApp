@@ -1,31 +1,10 @@
-import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import React from "react";
 
-import { Spinner } from 'native-base';
+import navOptions from "./navOptions";
+import LoadingView from "../views/Loading";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});
+const LoadingScreen = () => <LoadingView />;
 
-const LoadingScreen = () => (
-  <View style={styles.container}>
-    <Spinner color="blue" />
-    <Text>Cargando...</Text>
-  </View>
-);
-
-LoadingScreen.navigationOptions = {
-  title: 'Cargando',
-  header: {
-    left: null,
-    right: null,
-    style: { backgroundColor: '#2E5481' },
-    titleStyle: { color: '#fff' }
-  }
-};
+LoadingScreen.navigationOptions = navOptions({ title: "Cargando" });
 
 export default LoadingScreen;
