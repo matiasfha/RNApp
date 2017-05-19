@@ -5,9 +5,12 @@ import SigninView from '../views/Signin';
 
 const SigninScreen = () => <SigninView />;
 
-SigninScreen.navigationOptions = navOptions({
-  title: 'Iniciar Sesión',
-  headerMenu: false,
-});
+SigninScreen.navigationOptions = {
+  ...navOptions({
+    title: 'Iniciar Sesión',
+    headerMenu: false,
+  }),
+  headerRight: null,
+};
 
 export default SigninScreen;

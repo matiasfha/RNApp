@@ -1,6 +1,7 @@
 import React from 'react';
 import TabIcon from '../components/TabIcon';
 import MenuButton from '../components/MenuButton';
+import LogoutButton from '../components/LogoutButton';
 import { osComponent } from '../utils';
 
 const navOptions = (
@@ -8,7 +9,7 @@ const navOptions = (
 ) => {
   const base = {
     headerLeft: osComponent(headerMenu ? <MenuButton /> : null, null),
-    headerRight: null,
+    headerRight: <LogoutButton />,
     headerStyle: { backgroundColor: '#2E5481' },
     headerTitleStyle: { color: '#fff' },
   };

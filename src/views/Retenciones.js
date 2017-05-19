@@ -16,8 +16,8 @@ const RetencionesView = ({ retenciones }) => (
           <DateRow />
           <DataCard title="Disponible" value={retenciones.data.disponible} />
           <DataCard title="Transferido" value={retenciones.data.transferido} />
-          <DataCard title="Ocupado" value={retenciones.data.ocupado} />
-          <DataCard title="Liberar" value={retenciones.data.liberar} />
+          <DataCard title="Utilizado" value={retenciones.data.ocupado} />
+          <DataCard title="Por Liberar" value={retenciones.data.liberar} />
         </Col>
       </Grid>
 

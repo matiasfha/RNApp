@@ -1,4 +1,15 @@
 import { Platform } from 'react-native';
+import leftPad from 'left-pad';
+
+const memoize = fn => {
+  const cache = {};
+  return (...args) => {
+    const stringifiedArgs = JSON.stringify(args);
+    const result = (cache[stringifiedArgs] = cache[stringifiedArgs] ||
+      fn(...args)); //eslint-disable-line
+    return result;
+  };
+};
 
 const currencyFormatter = require('currency-formatter');
 
@@ -33,5 +44,12 @@ export const getLocaleDate = opt => {
   return date.toLocaleString('es-ES', options);
 };
 
-export const osComponent = (androidComponent, iosComponent) =>
-  Platform.OS === 'android' ? androidComponent : iosComponent;
+export const osComponent = memoize(
+  (androidComponent, iosComponent) =>
+    Platform.OS === 'android' ? androidComponent : iosComponent
+);
+
+export const parseRut = memoize(rut => {
+  const str = rut.replace(/\W/g, '');
+  return leftPad(str, 10, '0');
+});

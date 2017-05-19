@@ -7,14 +7,22 @@ import ScreenHeader from '../components/ScreenHeader';
 import DateRow from '../components/DateRow';
 import DataCard from '../components/DataCard';
 import Footer from '../components/Footer';
+import Message from '../components/Message';
 
-const SaldosView = ({ saldos }) => (
+const SaldosView = ({ saldos, mensaje }) => (
   <Container style={{ backgroundColor: '#fff' }}>
     <ScreenHeader />
     <Content>
       <Grid style={{ marginTop: 20, marginLeft: 10, marginRight: 10 }}>
         <Col>
           <DateRow />
+          <Message
+            content={
+              `Estimado cliente por favor recuerde mantener
+sus datos de contacto actualizados.
+Para hacerlo visite http://www.logros.cl`
+            }
+          />
           <DataCard title="Factoring Facturas" value={saldos.data.facturas} />
           <DataCard title="Factoring Cheques" value={saldos.data.cheques} />
           <DataCard
@@ -33,7 +41,7 @@ const SaldosView = ({ saldos }) => (
           />
         </Col>
       </Grid>
-      <Footer />
+      <Footer text={mensaje} />
     </Content>
 
   </Container>
@@ -53,9 +61,15 @@ SaldosView.propTypes = {
     }).isRequired,
     error: number,
   }).isRequired,
+  mensaje: PropTypes.string,
+};
+
+SaldosView.defaultProps = {
+  mensaje: '',
 };
 
 const mapStateToProps = state => ({
   saldos: state.data.saldos,
+  mensaje: state.user.mensaje,
 });
 export default connect(mapStateToProps)(SaldosView);

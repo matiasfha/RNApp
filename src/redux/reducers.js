@@ -23,6 +23,7 @@ import {
   INDICADORES_REQUEST,
   INDICADORES_SUCCESS,
   INDICADORES_FAILED,
+  RESET_STATE,
 } from './constants';
 
 import AppNavigator from '../navigators/Navigator';
@@ -35,6 +36,11 @@ const navReducer = (state, action) => {
 const userInitialState = {
   requesting: false,
   error: 0,
+  usuario: {},
+  mensaje: '',
+  ejecutivo: {
+    sucursal: {},
+  },
 };
 function userReducer(state = userInitialState, action) {
   switch (action.type) {
@@ -151,6 +157,8 @@ function dataReducer(state = dataInitialState, action) {
         ...state,
         vigentes: { requesting: false, data: [], error: action.payload },
       };
+    case RESET_STATE:
+      return dataInitialState;
     default:
       return state;
   }
@@ -181,6 +189,8 @@ function indicadoresReducer(state = indicadoresState, action) {
         filled: true,
         ...action.payload,
       };
+    case RESET_STATE:
+      return indicadoresState;
     default:
       return state;
   }

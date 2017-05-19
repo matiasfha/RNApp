@@ -1,39 +1,13 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Content, Container, List, Card, CardItem, Body } from 'native-base';
-import { Grid, Col, Row } from 'react-native-easy-grid';
-import { View } from 'react-native';
-import AutoLink from 'react-native-autolink';
+import { Content, Container, List } from 'native-base';
+import { Grid, Col } from 'react-native-easy-grid';
 
 import ScreenHeader from '../components/ScreenHeader';
 import SegmentBar from '../components/Segment';
 import OperacionesItem from '../components/OperacionesItem';
+import Message from '../components/Message';
 import '../redux/actions';
-
-const Message = (
-  { dispatch } //eslint-disable-line
-) => (
-  <Row>
-    <Card>
-      <CardItem>
-        <Body>
-          <View
-            style={{
-              justifyContent: 'flex-end',
-              alignItems: 'flex-start',
-              flexDirection: 'row',
-            }}
-          >
-            <AutoLink
-              text="Aquí podrá encontrar las últimas 20 operaciones, para más información visite http://www.logros.cl o contacte a su Ejecutivo"
-            />
-
-          </View>
-        </Body>
-      </CardItem>
-    </Card>
-  </Row>
-);
 
 const OperacionesList = ({ data }) => (
   <List>
@@ -84,7 +58,9 @@ class OperacionesDetailsViews extends React.Component {
                 active={encurso}
                 handleSegmentClick={this.handleSegmentClick}
               />
-              <Message />
+              <Message
+                content="Aquí podrá encontrar las últimas 20 operaciones, para más información visite http://www.logros.cl o contacte a su Ejecutivo"
+              />
               {encurso && <OperacionesList data={data.encurso} />}
               {!encurso && <OperacionesList data={data.vigentes} />}
             </Col>

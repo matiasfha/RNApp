@@ -444,6 +444,10 @@ auth0-js@^7.4.0:
     winchan "0.1.4"
     xtend "~2.1.1"
 
+autolinker@^1.2.0:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/autolinker/-/autolinker-1.4.3.tgz#2e615057c8e371399a6d77949a9a6af24fe46dfc"
+
 aws-sign2@~0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.6.0.tgz#14342dd38dbcc94d0e5b87d763cd63612c0e794f"
@@ -4375,6 +4379,12 @@ linked-list@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/linked-list/-/linked-list-0.1.0.tgz#798b0ff97d1b92a4fd08480f55aea4e9d49d37bf"
 
+linkify-it@^1.2.0:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/linkify-it/-/linkify-it-1.2.4.tgz#0773526c317c8fd13bd534ee1d180ff88abf881a"
+  dependencies:
+    uc.micro "^1.0.1"
+
 lint-staged@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-3.4.0.tgz#52fa85dfc92bb1c6fe8ad0d0d98ca13924e03e4b"
@@ -5600,6 +5610,12 @@ react-devtools@^2.0.12:
     ip "^1.1.4"
     react-devtools-core "^2.0.12"
 
+react-native-autolink@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-autolink/-/react-native-autolink-1.0.0.tgz#622740775a752b86bda6f4bdeb1d767888c38a3a"
+  dependencies:
+    autolinker "^1.2.0"
+
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
@@ -5639,6 +5655,12 @@ react-native-easy-grid@^0.1.8:
   resolved "https://github.com/callstack-io/react-native-fbads/tarball/v4.1.0#e836ed7f4502593d4a4757f27cdfa0ffef4dc729"
   dependencies:
     eventemitter3 "^2.0.2"
+
+react-native-hyperlink@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/react-native-hyperlink/-/react-native-hyperlink-0.0.9.tgz#3003ec54eba2e4b8c6f7480d1edb35746cd3d139"
+  dependencies:
+    linkify-it "^1.2.0"
 
 react-native-keyboard-aware-scroll-view@0.2.7:
   version "0.2.7"
@@ -7182,6 +7204,10 @@ typedarray@^0.0.6, typedarray@~0.0.5:
 ua-parser-js@^0.7.9:
   version "0.7.12"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
+
+uc.micro@^1.0.1:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/uc.micro/-/uc.micro-1.0.3.tgz#7ed50d5e0f9a9fb0a573379259f2a77458d50192"
 
 uglify-js@^2.6, uglify-js@^2.6.2:
   version "2.8.18"

@@ -48,6 +48,11 @@ const EjecutivoView = (
           <Item title="Telefono" content={telefono} url={`tel:${telefono}`} />
           <Item title="Email" content={email} url={`mailto:${email}`} />
           <Item
+            title="Email Alternativo"
+            content="marketing@logros.cl"
+            url="mailto:marketing@logros.cl"
+          />
+          <Item
             title="Dirección"
             content={direccion}
             url={`geo:${ubicacion.lat},${ubicacion.long}`}

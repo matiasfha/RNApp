@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Text, Image, StyleSheet, Linking, Alert } from 'react-native';
 import { Container, Content, Icon, Button } from 'native-base';
 import { Row, Grid } from 'react-native-easy-grid';
+import Hyperlink from 'react-native-hyperlink';
 
 import BackgroundImage from '../components/BackgroundImage';
 import SigninForm from '../components/SigninForm';
@@ -87,19 +88,25 @@ class SigninView extends React.Component {
                 <Icon name="arrow-forward" style={{ color: '#95989A' }} />
               </Button>
 
-              <Text
-                style={{
-                  marginTop: 18,
-                  marginLeft: 18,
-                  marginRight: 18,
-                  color: '#646464',
-                  fontSize: 14,
-                }}
+              <Hyperlink
+                linkStyle={{ color: '#2980b9' }}
+                linkText={url =>
+                  url === 'https://logros.cl/contacto-factoring/'
+                    ? 'sitio web'
+                    : url}
               >
-                Si aún no es cliente de Logros Factoring, conozca
-                y solicite todas las alternativas de financiamiento
-                y capital de trabajo que tenemos para su empresa.
-              </Text>
+                <Text
+                  style={{
+                    marginTop: 18,
+                    marginLeft: 18,
+                    marginRight: 18,
+                    color: '#646464',
+                    fontSize: 14,
+                  }}
+                >
+                  Si aún no es cliente de Logros Factoring envíenos un mensaje en nuestro https://logros.cl/contacto-factoring/  y lo contactaremos a la brevedad para que conozca todas las alternativas de financiamiento que tenemos para su empresa.
+                </Text>
+              </Hyperlink>
 
               <Button
                 block

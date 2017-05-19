@@ -45,7 +45,7 @@ const LinkableButton = ({ url, content }) => {
     <Text
       style={{
         color: '#000',
-        fontSize: 18,
+        fontSize: 12,
       }}
     >
       {content}
