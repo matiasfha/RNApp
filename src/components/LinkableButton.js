@@ -1,61 +1,40 @@
 import React, { PropTypes } from 'react';
-import { Text, Button } from 'native-base';
-import { Linking } from 'react-native';
-import AutoLink from 'react-native-autolink';
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import Communications from 'react-native-communications';
 
-const handleClick = url => {
-  Linking.canOpenURL(url).then(supported => {
-    if (supported) {
-      Linking.openURL(url);
-    } else {
-      console.log(`Don't know how to open URI: ${url}`); //eslint-disable-line
-    }
+import { switchcase } from '../utils';
 
-    // TODO LOG THIS SOMEWHERE console.log(`Don't know how to open URI: ${url}`);
-  });
-};
+const styles = StyleSheet.create({
+  holder: {
+    backgroundColor: '#FFF',
+  },
+  text: {
+    fontSize: 14,
+    fontWeight: 'normal',
+    fontFamily: 'System',
+  },
+});
 
-const UrlButton = ({ url, content }) => (
-  <Button
-    full
-    transparent
-    onPress={() => handleClick(url)}
-    style={{ paddingLeft: 0, marginLeft: 0 }}
-  >
-    <AutoLink
-      text={content}
-      linkStyle={{
-        color: '#000',
-        fontSize: 18,
-      }}
-    />
-  </Button>
-);
+const LinkableButton = ({ url, content, type }) => {
+  const call = switchcase({
+    phone: () => Communications.phonecall(url, false),
+    email: () =>
+      Communications.email([url], null, null, 'Solicitud de Contacto', ''),
+  })(() => {});
 
-UrlButton.propTypes = {
-  url: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-};
-
-const LinkableButton = ({ url, content }) => {
-  if (url) {
-    return <UrlButton url={url} content={content} />;
-  }
   return (
-    <Text
-      style={{
-        color: '#000',
-        fontSize: 12,
-      }}
-    >
-      {content}
-    </Text>
+    <TouchableOpacity onPress={call(type)}>
+      <View style={styles.holder}>
+        <Text style={styles.text}>{content}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
 LinkableButton.propTypes = {
   url: PropTypes.string,
   content: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 LinkableButton.defaultProps = {

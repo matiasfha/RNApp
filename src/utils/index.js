@@ -28,6 +28,9 @@ export const switchcase = cases =>
 export const switchcaseF = cases =>
   defaultCase => key => executeIfFunction(switchcase(cases)(defaultCase)(key));
 
+export const capitalize = str =>
+  str.length ? str[0].toUpperCase() + str.slice(1).toLowerCase() : '';
+
 export const getLocaleDate = opt => {
   const options = {
     ...{
@@ -41,7 +44,7 @@ export const getLocaleDate = opt => {
     ...opt,
   };
   const date = new Date();
-  return date.toLocaleString('es-ES', options);
+  return capitalize(date.toLocaleString('es-ES', options));
 };
 
 export const osComponent = memoize(

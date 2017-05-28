@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
 });
 
 const titleImg = require('../images/title.png');
+const indicadores = require('../images/indicadores.png');
 
 let alertShown = false;
 
@@ -84,7 +85,16 @@ class SigninView extends React.Component {
                 onPress={() =>
                   Linking.openURL('https://logros.cl/contacto-factoring/')}
               >
-                <Text style={{ color: '#B72020' }}> Aún no soy cliente </Text>
+                <Text
+                  style={{
+                    fontSize: 17,
+                    fontWeight: 'normal',
+                    fontFamily: 'System',
+                    color: '#B72020',
+                  }}
+                >
+                  {' '}Aún no soy cliente{' '}
+                </Text>
                 <Icon name="arrow-forward" style={{ color: '#95989A' }} />
               </Button>
 
@@ -102,6 +112,8 @@ class SigninView extends React.Component {
                     marginRight: 18,
                     color: '#646464',
                     fontSize: 14,
+                    fontWeight: 'normal',
+                    fontFamily: 'System',
                   }}
                 >
                   Si aún no es cliente de Logros Factoring envíenos un mensaje en nuestro https://logros.cl/contacto-factoring/  y lo contactaremos a la brevedad para que conozca todas las alternativas de financiamiento que tenemos para su empresa.
@@ -117,13 +129,30 @@ class SigninView extends React.Component {
                 style={{
                   backgroundColor: 'white',
                   marginTop: 55,
+                  flexDirection: 'row',
                   justifyContent: 'space-between',
+                  flex: 1,
                 }}
                 onPress={() => dispatch(navigate('Indicadores'))}
               >
-                <Icon name="options" style={{ color: '#000' }} />
-                <Text style={{ color: '#000' }}> Indicadores económicos </Text>
-                <Icon name="arrow-forward" style={{ color: '#95989A' }} />
+                <Image source={indicadores} />
+                <Text
+                  style={{
+                    color: '#000',
+                    fontSize: 17,
+                    fontWeight: 'normal',
+                    fontFamily: 'System',
+                    textAlign: 'left',
+                    flex: 1,
+                    paddingRight: 100,
+                  }}
+                >
+                  {' '}Indicadores económicos{' '}
+                </Text>
+                <Icon
+                  name="arrow-forward"
+                  style={{ color: '#95989A', alignSelf: 'flex-end' }}
+                />
               </Button>
 
             </Grid>

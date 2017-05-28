@@ -11,9 +11,9 @@ const dotGreen = require('../images/dot-aprobado.png');
 
 const Status = ({ id }) => {
   const getState = switchcase({
-    A: { icon: dotGreen, state: 'Aprobado' },
-    E: { icon: dotRed, state: 'Pendiente' },
-  })({ icon: dotYellow, state: 'En Trámite' });
+    A: { icon: dotGreen, state: 'aprobado' },
+    E: { icon: dotRed, state: 'pendiente' },
+  })({ icon: dotYellow, state: 'en trámite' });
 
   const { icon, state } = getState(id);
   return (
@@ -24,7 +24,16 @@ const Status = ({ id }) => {
         justifyContent: 'flex-start',
       }}
     >
-      <Text style={{ color: '#888', fontSize: 12 }}>{state} </Text>
+      <Text
+        style={{
+          color: '#888',
+          fontSize: 12,
+          fontWeight: 'normal',
+          fontFamily: 'System',
+        }}
+      >
+        {state}{' '}
+      </Text>
       <Image source={icon} style={{ marginTop: 5 }} />
     </View>
   );
@@ -38,18 +47,39 @@ const OperacionesItem = ({ value, operacion, date, sucursal, status }) => (
   <ListItem>
     <Col>
       <Row style={{ justifyContent: 'space-between' }}>
-        <Text style={{ color: '#000', fontSize: 18, fontWeight: 'bold' }}>
+        <Text
+          style={{
+            color: '#000',
+            fontSize: 18,
+            fontWeight: 'bold',
+            fontFamily: 'System',
+          }}
+        >
           {toMoney(value)}
         </Text>
         {status && <Status id={status} />}
       </Row>
       <Row>
-        <Text style={{ color: '#000', fontSize: 14 }}>
+        <Text
+          style={{
+            color: '#000',
+            fontSize: 14,
+            fontWeight: 'normal',
+            fontFamily: 'System',
+          }}
+        >
           Operación Nº {operacion}
         </Text>
       </Row>
       <Row>
-        <Text style={{ color: '#5F5F5F', fontSize: 14 }}>
+        <Text
+          style={{
+            color: '#5F5F5F',
+            fontSize: 14,
+            fontWeight: 'normal',
+            fontFamily: 'System',
+          }}
+        >
           {date}, sucursal {sucursal}
         </Text>
       </Row>

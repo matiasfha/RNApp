@@ -1,7 +1,7 @@
 import { NavigationActions } from 'react-navigation';
 
 import login from '../../api/auth';
-import { loginRequest, loginSuccess, loginFailed } from './login';
+import { loginRequest, loginSuccess, loginFailed, logout } from './login';
 import { retrieveSaldos } from './saldos';
 import {
   retrieveOperaciones,
@@ -23,7 +23,10 @@ function retrieveData(data) {
       dispatch(retrieveCurso(data)),
       dispatch(retrieveVigente(data)),
     ])
-      .then(() => dispatch(navigate('Tabs')))
+      .then(() => {
+        setTimeout(() => dispatch(logout()), 300000); // 5 minutes
+        dispatch(navigate('Tabs'));
+      })
       .catch(() => {
         // TODO Log the error to somewhere
         dispatch(navigate('Home'));

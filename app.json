@@ -3,13 +3,13 @@
     "sdkVersion": "16.0.0",
     "name": "Logros",
     "slug": "logros",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "packagerOpts": {
       "assetExts": [
         "ttf"
       ]
     },
-    "icon": "src/images/Icono@3x.png",
+    "icon": "src/images/Icono-full.png",
     "orientation": "portrait",
     "privacy": "public",
     "loading": {

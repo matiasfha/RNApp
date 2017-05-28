@@ -13,6 +13,8 @@ const Footer = ({ text }) => (
           fontSize: 14,
           paddingTop: 10,
           paddingBottom: 10,
+          fontWeight: 'normal',
+          fontFamily: 'System',
         }}
       >
         {text}

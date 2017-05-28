@@ -20,8 +20,8 @@ const LogoutButton = ({ dispatch }) => (
     }}
   >
     <Icon
-      name="log-out"
-      style={{ color: 'white', marginRight: 10, marginTop: 5 }}
+      name="power"
+      style={{ color: 'white', marginRight: 10, marginTop: 5, fontSize: 20 }}
     />
   </TouchableOpacity>
 );

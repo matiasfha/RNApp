@@ -17,7 +17,14 @@ const Content = ({ currency = true, value, str }) => {
     text = currency ? toMoney(value) : value;
   }
   return (
-    <Text style={{ fontSize: 36, color: '#fff' }}>
+    <Text
+      style={{
+        fontSize: 36,
+        color: '#fff',
+        fontWeight: 'normal',
+        fontFamily: 'System',
+      }}
+    >
       {text}
     </Text>
   );
@@ -47,7 +54,14 @@ const DataCard = (
     return (
       <View style={baseStyle}>
         <Col style={{ width: 80, height: 67 }}>
-          <Text style={{ fontSize: 14, color: '#fff', fontWeight: 'bold' }}>
+          <Text
+            style={{
+              fontSize: 14,
+              color: '#fff',
+              fontWeight: 'bold',
+              fontFamily: 'System',
+            }}
+          >
             {title}
           </Text>
         </Col>

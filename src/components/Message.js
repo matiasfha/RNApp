@@ -6,8 +6,15 @@ import AutoLink from 'react-native-autolink';
 
 const Message = ({ content }) => (
   <Row>
-    <Card>
-      <CardItem>
+    <Card
+      transparent
+      bordered={false}
+      style={{
+        shadowColor: 'transparent',
+        shadowOpacity: 0,
+      }}
+    >
+      <CardItem style={{ borderWidth: 0 }} bordered={false}>
         <Body>
           <View
             style={{
@@ -16,7 +23,13 @@ const Message = ({ content }) => (
               flexDirection: 'row',
             }}
           >
-            <AutoLink text={content} />
+            <AutoLink
+              text={content}
+              style={{
+                fontWeight: 'normal',
+                fontFamily: 'System',
+              }}
+            />
 
           </View>
         </Body>

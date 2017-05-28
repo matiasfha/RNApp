@@ -13,7 +13,14 @@ const styles = StyleSheet.create({
 export const Loader = () => (
   <View style={styles.container}>
     <Spinner color="blue" />
-    <Text>Cargando...</Text>
+    <Text
+      style={{
+        fontWeight: 'normal',
+        fontFamily: 'System',
+      }}
+    >
+      Cargando...
+    </Text>
   </View>
 );
 

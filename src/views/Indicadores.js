@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Content, Container, Header } from 'native-base';
+import { Content, Container } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
 
 import DateRow from '../components/DateRow';
@@ -12,7 +12,6 @@ const View = (
   { indicadores, moneda } //eslint-disable-line
 ) => (
   <Container style={{ backgroundColor: '#fff' }}>
-    <Header style={{ backgroundColor: '#1F3A5A', height: 44 }} />
     <Content>
       <Grid style={{ marginTop: 20, marginLeft: 10, marginRight: 10 }}>
         <Col>

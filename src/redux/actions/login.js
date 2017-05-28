@@ -1,3 +1,4 @@
+import { NavigationActions } from 'react-navigation';
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -35,3 +36,10 @@ export function loginReset() {
     type: LOGIN_RESET,
   };
 }
+
+export const logout = () =>
+  NavigationActions.reset({
+    index: 0,
+    key: null,
+    actions: [NavigationActions.navigate({ routeName: 'Home' })],
+  });

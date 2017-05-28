@@ -1,7 +1,16 @@
 import React, { PropTypes, Component } from 'react';
 import { Button, Item, Input, Text, Label } from 'native-base';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
+import { View, ScrollView } from 'react-native';
 
-import { View } from 'react-native';
+const styles = {
+  label: {
+    fontSize: 17,
+    fontWeight: 'normal',
+    fontFamily: 'System',
+    marginLeft: 0,
+  },
+};
 
 class SigninForm extends Component {
   constructor(props) {
@@ -12,6 +21,7 @@ class SigninForm extends Component {
     };
   }
 
+  focusNext = ref => this.inputs[ref].focus();
   submit = () => this.props.handleSubmit(this.state);
 
   render() {
@@ -25,25 +35,46 @@ class SigninForm extends Component {
             marginBottom: 40,
           }}
         >
-          <Item inlineLabel underline>
-            <Label style={{ marginLeft: 18 }}>Rut</Label>
-            <Input
-              name="rut"
-              autoFocus
-              returnKeyType="next"
-              onChangeText={text => this.setState({ rut: text })}
-            />
+          <Item
+            inlineLabel
+            underline
+            style={{ marginLeft: 20, marginRight: 20 }}
+          >
+            <Label style={styles.label}>RUT</Label>
+            <ScrollView scrollEnabled={false}>
+              <Input
+                name="rut"
+                blurOnSubmit={false}
+                autoFocus
+                returnKeyType="next"
+                onSubmitEditing={() => this.inputPassword._root.focus()} // eslint-disable-line
+                onChangeText={text => this.setState({ rut: text })}
+              />
+            </ScrollView>
           </Item>
 
-          <Item inlineLabel style={{ borderBottomColor: '#fff' }}>
-            <Label style={{ marginLeft: 18 }}>Password</Label>
-            <Input
-              name="password"
-              returnKeyType="go"
-              secureTextEntry
-              onChangeText={text => this.setState({ password: text })}
-              last
-            />
+          <Item
+            inlineLabel
+            style={{
+              borderBottomColor: '#fff',
+              marginLeft: 20,
+              marginRight: 20,
+            }}
+          >
+            <Label style={styles.label}>Password</Label>
+            <ScrollView scrollEnabled={false}>
+              <Input
+                ref={c => {
+                  this.inputPassword = c;
+                }}
+                name="password"
+                returnKeyType="go"
+                secureTextEntry
+                onChangeText={text => this.setState({ password: text })}
+                last
+                onSubmitEditing={this.submit}
+              />
+            </ScrollView>
           </Item>
 
         </View>
@@ -58,8 +89,9 @@ class SigninForm extends Component {
             justifyContent: 'flex-start',
           }}
         >
-          <Text style={{ color: '#2E5481' }}> Ingresar </Text>
+          <Text style={{ ...styles.label, color: '#2E5481' }}> Ingresar </Text>
         </Button>
+        <KeyboardSpacer />
       </View>
     );
   }

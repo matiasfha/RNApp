@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Content, Container, List } from 'native-base';
 import { Grid, Col } from 'react-native-easy-grid';
+import { View } from 'react-native';
 
 import ScreenHeader from '../components/ScreenHeader';
 import SegmentBar from '../components/Segment';
@@ -52,15 +53,17 @@ class OperacionesDetailsViews extends React.Component {
       <Container style={{ backgroundColor: '#fff' }}>
         <ScreenHeader />
         <Content>
-          <Grid style={{ marginTop: 20, marginLeft: 10, marginRight: 10 }}>
+          <Grid style={{ marginTop: 20, marginLeft: 10 }}>
             <Col>
               <SegmentBar
                 active={encurso}
                 handleSegmentClick={this.handleSegmentClick}
               />
-              <Message
-                content="Aquí podrá encontrar las últimas 20 operaciones, para más información visite http://www.logros.cl o contacte a su Ejecutivo"
-              />
+              <View style={{ marginRight: 10 }}>
+                <Message
+                  content="Aquí podrá encontrar las últimas 20 operaciones, para más información visite http://www.logros.cl o contacte a su Ejecutivo"
+                />
+              </View>
               {encurso && <OperacionesList data={data.encurso} />}
               {!encurso && <OperacionesList data={data.vigentes} />}
             </Col>

@@ -5,6 +5,7 @@ const styles = active => ({
   segment: {
     borderColor: '#2E5481',
     justifyContent: 'space-between',
+    marginRight: 10,
   },
   button: {
     borderColor: '#2E5481',
@@ -16,6 +17,8 @@ const styles = active => ({
   },
   text: {
     color: active ? '#fff' : '#2E5481',
+    fontWeight: 'normal',
+    fontFamily: 'System',
   },
 });
 

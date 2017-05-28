@@ -8,11 +8,17 @@ import IndicadoresScreen from '../screens/Indicadores';
 
 import { osComponent } from '../utils';
 
-const AppNavigator = StackNavigator({
-  Home: { screen: SigninScreen },
-  Tabs: { screen: osComponent(DrawerNavigator, TabNavigator) },
-  Loading: { screen: LoadingScreen },
-  Indicadores: { screen: IndicadoresScreen },
-});
+const AppNavigator = StackNavigator(
+  {
+    Home: { screen: SigninScreen },
+    Tabs: { screen: osComponent(DrawerNavigator, TabNavigator) },
+    Loading: { screen: LoadingScreen },
+    Indicadores: { screen: IndicadoresScreen },
+  },
+  {
+    mode: 'modal',
+    initialRouteName: 'Home',
+  }
+);
 
 export default AppNavigator;
