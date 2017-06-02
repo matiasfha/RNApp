@@ -1,9 +1,9 @@
 {
   "expo": {
-    "sdkVersion": "16.0.0",
+    "sdkVersion": "17.0.0",
     "name": "Logros",
     "slug": "logros",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "packagerOpts": {
       "assetExts": [
         "ttf"
@@ -23,7 +23,13 @@
     },
     "androidStatusBarColor" : "#1F3A5A",
     "android": {
-      "package": "cl.become.logros"
+      "package": "cl.become.logros",
+      "config": {
+        "fabric":{
+          "apiKey":"f6bc4a5639f522b73e35cc1f501161b6bd31eb01",
+          "buildSecret":"88148fb76ab3bcf73a4d529cd91f91f00d029f27921cc7bfcbc2dad3ed4c0d4e"
+        }
+      }
     }
   }
 }

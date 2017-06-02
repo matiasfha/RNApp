@@ -9,9 +9,16 @@ import {
   retrieveVigente,
 } from './operaciones';
 import { retrieveRetenciones } from './retenciones';
+import { DATA_LOADED } from '../constants';
 
 export function navigate(routeName, params = {}) {
   return NavigationActions.navigate({ routeName, params });
+}
+
+export function dataLoaded() {
+  return {
+    type: DATA_LOADED,
+  };
 }
 
 function retrieveData(data) {
@@ -25,7 +32,7 @@ function retrieveData(data) {
     ])
       .then(() => {
         setTimeout(() => dispatch(logout()), 300000); // 5 minutes
-        dispatch(navigate('Tabs'));
+        dispatch(dataLoaded());
       })
       .catch(() => {
         // TODO Log the error to somewhere
@@ -36,7 +43,7 @@ function retrieveData(data) {
 
 export function doLogin(data) {
   return dispatch => {
-    dispatch(navigate('Loading'));
+    dispatch(navigate('Tabs'));
     if (data.rut !== '' && data.password !== '') {
       dispatch(loginRequest(data));
       return login(data)

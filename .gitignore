@@ -1,6 +1,3 @@
 node_modules/
 .expo/
 npm-debug.*
-fastlane
-*.ipa
-*.apk

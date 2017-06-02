@@ -24,6 +24,7 @@ import {
   INDICADORES_SUCCESS,
   INDICADORES_FAILED,
   RESET_STATE,
+  DATA_LOADED,
 } from './constants';
 
 import AppNavigator from '../navigators/Navigator';
@@ -58,6 +59,7 @@ function userReducer(state = userInitialState, action) {
 }
 
 const dataInitialState = {
+  loaded: false,
   saldos: {
     requesting: false,
     data: [],
@@ -156,6 +158,11 @@ function dataReducer(state = dataInitialState, action) {
       return {
         ...state,
         vigentes: { requesting: false, data: [], error: action.payload },
+      };
+    case DATA_LOADED:
+      return {
+        ...state,
+        loaded: true,
       };
     case RESET_STATE:
       return dataInitialState;
