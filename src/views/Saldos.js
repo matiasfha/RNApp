@@ -61,13 +61,7 @@ const number = PropTypes.number;
 SaldosView.propTypes = {
   saldos: shape({
     requesting: PropTypes.bool.isRequired,
-    data: shape({
-      facturas: number,
-      cheques: number,
-      financiero: number,
-      total: number,
-      plazo: number,
-    }).isRequired,
+    data: PropTypes.any.isRequired,
     error: number,
   }).isRequired,
   mensaje: PropTypes.string,

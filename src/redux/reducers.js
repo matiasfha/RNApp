@@ -40,7 +40,18 @@ const userInitialState = {
   usuario: {},
   mensaje: '',
   ejecutivo: {
-    sucursal: {},
+    nombre: '',
+    celular: '',
+    sucursal: {
+      email: '',
+      ciudad: '',
+      direccion: '',
+      telefono: '',
+      ubicacion: {
+        lat: '',
+        long: '',
+      },
+    },
   },
 };
 function userReducer(state = userInitialState, action) {

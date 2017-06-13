@@ -1,6 +1,6 @@
 {
-  "name": "logros2",
-  "version": "1.0.4",
+  "name": "logros",
+  "version": "1.0.5",
   "private": true,
   "devDependencies": {
     "appr": "^1.0.1",

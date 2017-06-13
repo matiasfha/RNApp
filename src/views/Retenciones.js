@@ -31,12 +31,7 @@ const number = PropTypes.number;
 RetencionesView.propTypes = {
   retenciones: shape({
     requesting: PropTypes.bool.isRequired,
-    data: shape({
-      disponible: number,
-      transferido: number,
-      ocupado: number,
-      liberar: number,
-    }).isRequired,
+    data: PropTypes.any.isRequired,
     error: number,
   }).isRequired,
 };

@@ -49,7 +49,7 @@ Item.defaultProps = {
 };
 
 const EjecutivoView = (
-  { nombre, telefono, direccion, email, ubicacion } // eslint-disable-line no-unused-vars
+  { nombre, telefono, celular, ciudad, direccion, email, ubicacion } // eslint-disable-line no-unused-vars
 ) => (
   <Container style={{ backgroundColor: '#fff' }}>
     <ScreenHeader />
@@ -63,6 +63,7 @@ const EjecutivoView = (
             url={telefono}
             type="phone"
           />
+          <Item title="celular" content={celular} url={celular} type="phone" />
           <Item title="email" content={email} url={email} type="email" />
           <Item
             title="email alternativo"
@@ -70,6 +71,7 @@ const EjecutivoView = (
             url="marketing@logros.cl"
             type="email"
           />
+          <Item title="ciudad" content={ciudad} />
           <Item
             title="dirección"
             content={direccion}
@@ -85,9 +87,11 @@ const EjecutivoView = (
 
 EjecutivoView.propTypes = {
   nombre: PropTypes.string.isRequired,
+  celular: PropTypes.string.isRequired,
   telefono: PropTypes.string.isRequired,
   direccion: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  ciudad: PropTypes.string.isRequired,
   ubicacion: PropTypes.shape({
     lat: PropTypes.string.isRequired,
     long: PropTypes.string.isRequired,
@@ -104,5 +108,7 @@ const mapStateToProps = state => ({
     .replace(')', ''),
   email: state.user.ejecutivo.sucursal.email,
   ubicacion: state.user.ejecutivo.sucursal.ubicacion,
+  ciudad: state.user.ejecutivo.sucursal.ciudad,
+  celular: state.user.ejecutivo.celular,
 });
 export default connect(mapStateToProps)(EjecutivoView);
